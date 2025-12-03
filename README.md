@@ -1,3 +1,3 @@
 <div align="center"><img src="dashboard_footballer.png" style="width:50%;"></div>
 
-# Portfolio-Project
+<h1 align="center">Portfolio-Project</h1>
