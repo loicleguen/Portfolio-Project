@@ -33,6 +33,13 @@ Regarding the distribution of technical roles, since there are three distinct pa
 
 Regarding the distribution of technical roles, since there are three distinct parts in this project, we decided that each of us, Pierre-Yves, Jules and myself, would be responsible for one of these parts. This means that all three of us would be both front-end and back-end developers. As for Valentin, he is the team’s data analyst for the parts handled by Pierre-Yves and Jules, because for my part I will also be doing the data work so that my demo day is more complete.
 
+The direct stakeholders are obviously the co-developers, therefore Pierre-Yves, Jules, Valentin, and myself.
+The indirect stakeholders are the clients :
+- Pierre, who is the financial director.
+- Florian, who is the goalkeepers’ coach.
+- Sebastien, who is the assistant coach.
+- Lucas, who is the fitness coach.
+
 ## [Brainstorming and idea evaluation](#-table-of-contents)
 
 ## [Decision and Refinement](#-table-of-contents)
