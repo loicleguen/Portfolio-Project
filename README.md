@@ -29,6 +29,10 @@ We did not assign initial roles to individuals. We consider ourselves all as co-
 
 We meet regularly at school and, when needed, we have a Discord group for the four of us. We also have a WhatsApp group for communication with the clients.
 
+## [Brainstorming and idea evaluation](#-table-of-contents)
+
+## [Decision and Refinement](#-table-of-contents)
+
 <a name="author"></a>
 ## [Author](#table-of-contents)
 
