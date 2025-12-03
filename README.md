@@ -36,9 +36,9 @@ Regarding the distribution of technical roles, since there are three distinct pa
 The direct stakeholders are obviously the co-developers, therefore Pierre-Yves, Jules, Valentin, and myself.
 The indirect stakeholders are the clients :
 - Pierre, who is the financial director.
-- Florian, who is the goalkeepers’ coach.
-- Sebastien, who is the assistant coach.
-- Lucas, who is the fitness coach.
+- Florian, who is a goalkeepers’ coach.
+- Sebastien, who is an assistant coach.
+- Lucas, who is a fitness coach.
 
 ## [Brainstorming and idea evaluation](#-table-of-contents)
 
