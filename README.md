@@ -29,6 +29,10 @@ We did not assign initial roles to individuals. We consider ourselves all as co-
 
 We meet regularly at school and, when needed, we have a Discord group for the four of us. We also have a WhatsApp group for communication with the clients.
 
+Regarding the distribution of technical roles, since there are three distinct parts in this project, we decided that each of us — Pierre-Yves, Jules, and myself — would take responsibility for one of these parts. This means that all three of us would be both front-end and back-end developers.
+
+Regarding the distribution of technical roles, since there are three distinct parts in this project, we decided that each of us, Pierre-Yves, Jules and myself, would be responsible for one of these parts. This means that all three of us would be both front-end and back-end developers. As for Valentin, he is the team’s data analyst for the parts handled by Pierre-Yves and Jules, because for my part I will also be doing the data work so that my demo day is more complete.
+
 ## [Brainstorming and idea evaluation](#-table-of-contents)
 
 ## [Decision and Refinement](#-table-of-contents)
