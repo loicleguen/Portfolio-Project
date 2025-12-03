@@ -11,11 +11,12 @@ This portfolio project showcases my skills and achievements in software developm
 <a name="table-of-contents"></a>
 ## 📚 Table of Contents
 
-- [Team Formation & roles definition](#team-Formation-&-roles-definition)
+- [Team Formation and roles definition](#team-Formation-and-roles-definition)
 - [Brainstorming and idea evaluation](#brainstorming-and-idea-evaluation)
-- [Decision and Refinement](decision-and-refinement)
+- [Decision and Refinement](#decision-and-refinement)
+- [Author](#author)
 
-## [Team Formation & roles definition](#-table-of-contents)
+## [Team Formation and roles definition](#table-of-contents)
 Our team began by getting to know each member’s background, strengths, and interests. We assigned initial responsibilities, including a temporary Project Manager to guide the early stages. Communication and collaboration guidelines were set up using tools like Slack or Discord. Each member took on a technical role—such as UI designer, backend developer, or frontend developer—based on their skills and preferences, ensuring balanced coverage of project needs. Stakeholders were identified and their influence on the project clarified where relevant.
 
 **The team is made up of four members:**
@@ -24,6 +25,13 @@ Our team began by getting to know each member’s background, strengths, and int
 - Valentin, who is in the first quarter of the fundamentals track.
 - Loïc, who is in the third quarter of the fundamentals track.
 
-We did not assign specific roles to individuals. We consider ourselves all as co-developers.
+We did not assign initial roles to individuals. We consider ourselves all as co-developers.
 
 We meet regularly at school and, when needed, we have a Discord group for the four of us. We also have a WhatsApp group for communication with the clients.
+
+<a name="author"></a>
+## [Author](#table-of-contents)
+
+| Author           | Role      | GitHub                                   | Email                        |
+|------------------|-----------|------------------------------------------|------------------------------|
+| **Loïc Le Guen** | Co-developer | [@loicleguen](https://github.com/loicleguen) | 11510@holbertonstudents.com  |
