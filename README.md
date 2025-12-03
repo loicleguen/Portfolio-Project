@@ -16,10 +16,10 @@ This portfolio project showcases my skills and achievements in software developm
 - [Decision and Refinement](#decision-and-refinement)
 - [Author](#author)
 
-## [Team Formation and roles definition](#table-of-contents)
+## [Team Formation and roles definition](#-table-of-contents)
 Our team began by getting to know each member’s background, strengths, and interests. We assigned initial responsibilities, including a temporary Project Manager to guide the early stages. Communication and collaboration guidelines were set up using tools like Slack or Discord. Each member took on a technical role—such as UI designer, backend developer, or frontend developer—based on their skills and preferences, ensuring balanced coverage of project needs. Stakeholders were identified and their influence on the project clarified where relevant.
 
-**The team is made up of four members:**
+The team is made up of four members:
 - Pierre-Yves, who is specializing in cybersecurity.
 - Jules, who is also specializing in cybersecurity.
 - Valentin, who is in the first quarter of the fundamentals track.
