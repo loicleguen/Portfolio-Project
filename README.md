@@ -44,6 +44,7 @@ The indirect stakeholders are the clients :
 You need to research project ideas, organize a brainstorming session using techniques such as mind mapping, SCAMPER, and “How Might We” questions. Then you must define criteria to evaluate the ideas, write a list of ideas with a short description for each one, and finally rank these ideas based on their feasibility, risks, and impact.
 
 ## [Decision and Refinement](#-table-of-contents)
+You need to choose the final MVP idea, clearly explain the problem it solves, the solution it provides, the target users, and the type of application. You must also justify why you chose this idea, define 2 to 3 key features, specify what will be included or not included in the project, and identify the main risks along with how you will manage them.
 
 <a name="author"></a>
 ## [Author](#table-of-contents)
