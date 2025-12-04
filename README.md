@@ -41,6 +41,7 @@ The indirect stakeholders are the clients :
 - Lucas, who is a fitness coach.
 
 ## [Brainstorming and idea evaluation](#-table-of-contents)
+You need to research project ideas, organize a brainstorming session using techniques such as mind mapping, SCAMPER, and “How Might We” questions. Then you must define criteria to evaluate the ideas, write a list of ideas with a short description for each one, and finally rank these ideas based on their feasibility, risks, and impact.
 
 ## [Decision and Refinement](#-table-of-contents)
 
