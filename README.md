@@ -41,6 +41,42 @@ The indirect stakeholders are the clients :
 ## [Brainstorming and idea evaluation](#-table-of-contents)
 You need to research project ideas, organize a brainstorming session using techniques such as mind mapping, SCAMPER, and “How Might We” questions. Then you must define criteria to evaluate the ideas, write a list of ideas with a short description for each one, and finally rank these ideas based on their feasibility, risks, and impact.
 
+
+To identify our project direction, we first researched current industry trends and real-world challenges in sports analytics and team management. Each team member contributed ideas inspired by personal interests and client needs.
+
+We organized a brainstorming session using mind mapping and “How Might We” questions to generate and connect ideas. We also applied the SCAMPER framework to explore how existing solutions could be improved or adapted.
+
+**Evaluation Criteria:**
+- Feasibility (can we build it with our skills and resources?)
+- Potential impact (usefulness for users and stakeholders)
+- Technical alignment (matches our expertise)
+- Scalability (can the solution grow or be adapted?)
+
+**Project Ideas:**
+1. **Player Performance Dashboard**  
+   A web app to track and visualize player statistics, training progress, and match performance.
+2. **Team Communication Platform**  
+   A tool for coaches and players to share updates, schedules, and feedback.
+3. **Fitness & Injury Tracker**  
+   An application to monitor player fitness levels and injury recovery, with alerts for coaches.
+
+**Ranking:**
+1. **Player Performance Dashboard**  
+   - Feasibility: High  
+   - Impact: High  
+   - Risks: Manageable  
+   - Chosen for its direct relevance to client needs and our technical strengths.
+2. **Fitness & Injury Tracker**  
+   - Feasibility: Medium  
+   - Impact: Medium  
+   - Risks: Data privacy, medical accuracy
+3. **Team Communication Platform**  
+   - Feasibility: High  
+   - Impact: Medium  
+   - Risks: Competes with existing solutions
+
+After discussion, we selected the Player Performance Dashboard as our MVP due to its strong alignment with stakeholder needs and our team's expertise.
+
 ## [Decision and Refinement](#-table-of-contents)
 You need to choose the final MVP idea, clearly explain the problem it solves, the solution it provides, the target users, and the type of application. You must also justify why you chose this idea, define 2 to 3 key features, specify what will be included or not included in the project, and identify the main risks along with how you will manage them.
 
