@@ -25,13 +25,11 @@ The team is made up of four members:
 - Valentin, who is in the first quarter of the fundamentals track.
 - Loïc, who is in the third quarter of the fundamentals track.
 
-We did not assign initial roles to individuals. We consider ourselves all as co-developers.
+At the start, we held a meeting to introduce ourselves, discuss our skills, and set expectations. We agreed to work as co-developers, without assigning a permanent Project Manager, but one member coordinates meetings and deadlines when needed.
 
-We meet regularly at school and, when needed, we have a Discord group for the four of us. We also have a WhatsApp group for communication with the clients.
+We established communication norms: regular in-person meetings at school, a Discord group for technical discussions, and WhatsApp for client communication. Decisions are made collectively, with everyone’s input considered.
 
-Regarding the distribution of technical roles, since there are three distinct parts in this project, we decided that each of us — Pierre-Yves, Jules, and myself — would take responsibility for one of these parts. This means that all three of us would be both front-end and back-end developers.
-
-Regarding the distribution of technical roles, since there are three distinct parts in this project, we decided that each of us, Pierre-Yves, Jules and myself, would be responsible for one of these parts. This means that all three of us would be both front-end and back-end developers. As for Valentin, he is the team’s data analyst for the parts handled by Pierre-Yves and Jules, because for my part I will also be doing the data work so that my demo day is more complete.
+Technical roles were distributed based on project needs and individual strengths. The project is divided into three main parts, each managed by Pierre-Yves, Jules, or Loïc, who handle both front-end and back-end tasks. Valentin acts as the data analyst for the parts managed by Pierre-Yves and Jules, while Loïc also manages data for his section to prepare for demo day.
 
 The direct stakeholders are obviously the co-developers, therefore Pierre-Yves, Jules, Valentin, and myself.
 The indirect stakeholders are the clients :
