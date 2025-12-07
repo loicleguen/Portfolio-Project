@@ -80,6 +80,47 @@ After discussion, we selected the Player Performance Dashboard as our MVP due to
 ## [Decision and Refinement](#-table-of-contents)
 You need to choose the final MVP idea, clearly explain the problem it solves, the solution it provides, the target users, and the type of application. You must also justify why you chose this idea, define 2 to 3 key features, specify what will be included or not included in the project, and identify the main risks along with how you will manage them.
 
+
+### Selected MVP: Player Performance Dashboard
+
+**Problem to solve:**  
+Coaches and staff lack a centralized tool to track player progress, statistics, and fitness, making decision-making and training optimization more difficult.
+
+**Solution provided:**  
+A web application that visualizes and analyzes performance, training, and match data for each player, making it easier to monitor and improve both individual and team results.
+
+**Target users:**  
+Coaches, technical staff, players, and sports analysts.
+
+**Type of application:**  
+Web application accessible on computers and tablets.
+
+**Why this idea?**  
+This project directly addresses the needs expressed by our clients and leverages our team’s technical skills. It offers immediate value and impact, while other ideas were either too complex for the available timeframe or already covered by existing solutions.
+
+**Key features and objectives:**
+1. Visualization of individual and team statistics (SMART goal: allow coaches to access clear, personalized reports for each player).
+2. Tracking training progress (SMART goal: generate progress charts for each player over a given period).
+3. Alerts and notifications for outstanding performances or drops in form (SMART goal: automate alerts when key indicators change significantly).
+
+**In-scope deliverables:**
+- Interactive dashboard with data visualization.
+- Import/export system for statistics.
+- Alerts and notification module.
+
+**Out-of-scope:**
+- Advanced medical analysis or injury tracking.
+- Internal messaging platform.
+- Native mobile application.
+
+**Risks and mitigation:**
+- **Risk:** Lack of experience with some data visualization technologies.  
+  **Mitigation:** Plan training sessions and use proven libraries.
+- **Risk:** Difficulty collecting reliable data.  
+  **Mitigation:** Work closely with clients to define clear data formats and sources.
+- **Risk:** High workload for the team.  
+  **Mitigation:** Prioritize essential features and schedule regular progress reviews.
+
 <a name="author"></a>
 ## [Author](#table-of-contents)
 
