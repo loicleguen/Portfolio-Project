@@ -14,7 +14,7 @@ This portfolio project showcases my skills and achievements in software developm
 - [Team Formation and roles definition](#team-Formation-and-roles-definition)
 - [Brainstorming and idea evaluation](#brainstorming-and-idea-evaluation)
 - [Decision and Refinement](#decision-and-refinement)
-- [High-Level Project Plan](#high--level-project-plan)
+- [High-Level Project Plan](#high-level-project-plan)
 - [Author](#author)
 
 
