@@ -123,25 +123,23 @@ This project directly addresses the needs expressed by our clients and leverages
 - **Risk:** High workload for the team.  
   **Mitigation:** Prioritize essential features and schedule regular progress reviews.
 
-  ## [High-Level Project Plan](#-table-of-contents)
+## [High-Level Project Plan](#-table-of-contents)
 
-  ### Timeline and Phases
+### Timeline and Phases
 
-| Stage                | Weeks      | Key Milestones / Deliverables                        |
-|----------------------|------------|-----------------------------------------------------|
-| 1. Idea Development  | 1-2        | Team formation, brainstorming, MVP selection         |
-| 2. Project Planning  | 3          | High-level plan, timeline, roles and responsibilities|
-| 3. Technical Documentation | 4-5  | Architecture, requirements, technical specs          |
-| 4. MVP Development   | 7-10       | Implementation, testing, feedback                    |
-| 5. Project Closure   | 11-12      | Final presentation, documentation, handover          |
+| Stage / Milestone                 | Target Date      | Key Deliverables / Description                          |
+|-----------------------------------|------------------|---------------------------------------------------------|
+| 1. Idea Development               | December 14      | Team formation, brainstorming, MVP selection            |
+| 2. Project Planning               | December 21      | High-level plan, timeline, roles and responsibilities   |
+| 3. Technical Documentation        | January 04       | Complete technical documentation                        |
+| CSV Data Processing Complete      | January 10       | All raw data cleaned and ready for use                  |
+| Backend Implementation Complete   | End of January   | Core backend features developed and tested              |
+| Frontend Implementation Complete  | End of February  | User interface and dashboard ready                      |
+| 4. MVP Ready                      | March 10         | Fully functional MVP for demo and client review         |
+| 5. Project Closure                | mid-March        | Final presentation, documentation, handover             |
 
-- **Stage 1:** Completed (team formed, MVP chosen)
-- **Stage 2:** Current (project plan and timeline)
-- **Stage 3:** Define technical requirements and documentation
-- **Stage 4:** Develop and test MVP
-- **Stage 5:** Present project, finalize documentation, close project
+This integrated timeline provides a clear overview of all major phases and milestones, helping the team track progress and meet key deadlines throughout the project.
 
-This plan ensures clear milestones and responsibilities for each phase, helping the team stay organized and focused throughout the project.
 
 <a name="author"></a>
 ## [Author](#table-of-contents)
