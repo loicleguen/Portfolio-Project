@@ -128,7 +128,7 @@ This project directly addresses the needs expressed by our clients and leverages
 ### Timeline and Phases
 
 | Stage / Milestone                  | Target Date      | Key Deliverables / Description                          |
-|------------------------------------|------------------|---------------------------------------------------------|
+|------------------------------------|:----------------:|---------------------------------------------------------|
 | 1. Idea Development                | December 14      | Team formation, brainstorming, MVP selection            |
 | 2. Project Planning                | December 21      | High-level plan, timeline, roles and responsibilities   |
 | 3. Technical Documentation         | January 04       | Complete technical documentation                        |
