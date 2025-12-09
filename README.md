@@ -14,7 +14,9 @@ This portfolio project showcases my skills and achievements in software developm
 - [Team Formation and roles definition](#team-Formation-and-roles-definition)
 - [Brainstorming and idea evaluation](#brainstorming-and-idea-evaluation)
 - [Decision and Refinement](#decision-and-refinement)
+- [High-Level Project Plan](#high--level-project-plan)
 - [Author](#author)
+
 
 ## [Team Formation and roles definition](#-table-of-contents)
 Our team began by getting to know each member’s background, strengths, and interests. We assigned initial responsibilities, including a temporary Project Manager to guide the early stages. Communication and collaboration guidelines were set up using tools like Slack or Discord. Each member took on a technical role—such as UI designer, backend developer, or frontend developer—based on their skills and preferences, ensuring balanced coverage of project needs. Stakeholders were identified and their influence on the project clarified where relevant.
@@ -120,6 +122,26 @@ This project directly addresses the needs expressed by our clients and leverages
   **Mitigation:** Work closely with clients to define clear data formats and sources.
 - **Risk:** High workload for the team.  
   **Mitigation:** Prioritize essential features and schedule regular progress reviews.
+
+  ## [High-Level Project Plan](#-table-of-contents)
+
+  ### Timeline and Phases
+
+| Stage                | Weeks      | Key Milestones / Deliverables                        |
+|----------------------|------------|-----------------------------------------------------|
+| 1. Idea Development  | 1-2        | Team formation, brainstorming, MVP selection         |
+| 2. Project Planning  | 3          | High-level plan, timeline, roles and responsibilities|
+| 3. Technical Documentation | 4-5  | Architecture, requirements, technical specs          |
+| 4. MVP Development   | 7-10       | Implementation, testing, feedback                    |
+| 5. Project Closure   | 11-12      | Final presentation, documentation, handover          |
+
+- **Stage 1:** Completed (team formed, MVP chosen)
+- **Stage 2:** Current (project plan and timeline)
+- **Stage 3:** Define technical requirements and documentation
+- **Stage 4:** Develop and test MVP
+- **Stage 5:** Present project, finalize documentation, close project
+
+This plan ensures clear milestones and responsibilities for each phase, helping the team stay organized and focused throughout the project.
 
 <a name="author"></a>
 ## [Author](#table-of-contents)
