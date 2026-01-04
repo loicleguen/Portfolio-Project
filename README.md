@@ -27,7 +27,10 @@ Part 3
 - [External and Internal APIs](#external-and-internal-apis)
 - [SCM and QA Strategies](#scm-and-qa-strategies)
 
+About
 - [Author](#author)
+
+---
 
 # Stage 1/ Team Formation, Brainstorming and MVP.
 
