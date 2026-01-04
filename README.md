@@ -177,6 +177,79 @@ This integrated timeline provides a clear overview of all major phases and miles
 
 [Here](images/mockups) is the link to the mockups.
 
+## [System Architecture](#-table-of-contents)
+
+### High-Level Architecture Diagram
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                         USER INTERFACE                          │
+│                      (Web Browser / Tablet)                     │
+└───────────────────────────┬─────────────────────────────────────┘
+                            │
+                            │ HTTPS Requests
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                         FRONT-END LAYER                         │
+│                    React.js / Next.js / Vue.js                  │
+│                   (Dashboard, Charts, Forms)                    │
+└───────────────────────────┬─────────────────────────────────────┘
+                            │
+                            │ REST API / GraphQL
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                         BACK-END LAYER                          │
+│                    Node.js / Python Flask                       │
+│                   (API Endpoints, Business Logic)               │
+└───────────┬───────────────┴───────────────┬─────────────────────┘
+            │                               │
+            │                               │
+            ▼                               ▼
+┌───────────────────────┐       ┌──────────────────────────┐
+│   DATABASE LAYER      │       │   EXTERNAL SERVICES      │
+│   PostgreSQL / MySQL  │       │   (Email Notifications)  │
+│   (Player Stats,      │       │   (Cloud Storage)        │
+│    Training Data)     │       │                          │
+└───────────────────────┘       └──────────────────────────┘
+```
+
+### Components Description
+
+**Front-end:**
+- **Technology:** React.js with chart libraries (Chart.js or D3.js)
+- **Responsibilities:** User interface, data visualization, CSV file upload, dashboard display
+- **Key Features:** Interactive charts, filtering, player comparison views
+
+**Back-end:**
+- **Technology:** Node.js with Express.js (or Python with Flask/Django)
+- **Responsibilities:** API endpoints, data processing, business logic, authentication
+- **Key Features:** REST API for CRUD operations, CSV parsing, data validation, alert generation
+
+**Database:**
+- **Technology:** PostgreSQL or MySQL (relational database)
+- **Responsibilities:** Store player statistics, training data, match performance, user information
+- **Structure:** Relational tables for players, matches, statistics, coaches, alerts
+
+**External Services:**
+- Email service (e.g., SendGrid) for sending performance alerts
+- Cloud storage (e.g., AWS S3) for storing CSV files and reports
+- Authentication service (optional: Auth0, Firebase Auth)
+
+### Data Flow
+
+1. **User uploads CSV file** → Front-end sends file to back-end API
+2. **Back-end processes CSV** → Parses data, validates, and stores in database
+3. **User requests dashboard** → Front-end fetches data from back-end API
+4. **Back-end queries database** → Retrieves player statistics and sends JSON response
+5. **Front-end renders charts** → Displays interactive visualizations
+6. **Alert triggers** → Back-end detects performance drop and sends email notification
+
+### Architecture Justification
+
+- **React.js for front-end:** Popular, component-based, excellent for dynamic dashboards with real-time data updates
+- **Node.js for back-end:** JavaScript consistency across stack, efficient for I/O operations, strong ecosystem for data processing
+- **PostgreSQL for database:** Reliable for structured data, supports complex queries needed for statistics analysis
+- **RESTful API:** Simple, scalable, and widely supported for communication between front-end and back-end
 
 <a name="author"></a>
 ## [Author](#table-of-contents)
