@@ -24,6 +24,7 @@ Part 3
 - [System Architecture](#system-architecture)
 - [Components, Classes, and Database Design](#components-classes-and-database-design)
 - [High-Level Sequence Diagrams](#high-level-sequence-diagrams)
+- [External and Internals APIs](#external-and-internals-apis)
 
 - [Author](#author)
 
@@ -835,6 +836,361 @@ sequenceDiagram
 - Coach views comprehensive player statistics
 
 These sequence diagrams illustrate the main interactions between system components for critical MVP functionalities.
+
+## [External and Internal APIs](#-table-of-contents)
+
+### External APIs
+
+The project currently does not integrate external third-party APIs. All data processing is done internally using:
+
+1. **pandas** - For CSV/Excel file parsing and data manipulation (internal library, not an external API)
+2. **matplotlib/seaborn** - For data visualization and graph generation (internal library)
+
+**Future Considerations:**
+- **Email Service API** (e.g., SendGrid, Mailgun) - For sending performance alert notifications
+- **Cloud Storage API** (e.g., AWS S3, Google Cloud Storage) - For storing uploaded files and generated reports
+- **Authentication Provider** (e.g., Auth0, Firebase Auth) - For enhanced authentication management
+
+### Internal API Endpoints
+
+**Base URL:** `http://localhost:8000/api` (development) | `https://yourdomain.com/api` (production)
+
+**Authentication:** JWT Bearer Token (for protected endpoints)
+
+---
+
+#### **Countries**
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `/countries/` | Create a new country | Yes |
+| GET | `/countries/` | Get all countries | Yes |
+| PUT | `/countries/{country_id}` | Update a country | Yes |
+| DELETE | `/countries/{country_id}` | Delete a country | Yes |
+
+**POST /countries/**
+```json
+// Request
+{
+  "name": "France"
+}
+
+// Response (201 Created)
+{
+  "id": 1,
+  "name": "France"
+}
+```
+
+**GET /countries/**
+```json
+// Response (200 OK)
+[
+  {
+    "id": 1,
+    "name": "France"
+  },
+  {
+    "id": 2,
+    "name": "Spain"
+  }
+]
+```
+
+---
+
+#### **Academies**
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `/academies/` | Create a new academy | Yes |
+| GET | `/academies/` | Get all academies | Yes |
+| GET | `/academies/country/{country_id}` | Get academies by country | Yes |
+| PUT | `/academies/{academy_id}` | Update an academy | Yes |
+| DELETE | `/academies/{academy_id}` | Delete an academy | Yes |
+
+**POST /academies/**
+```json
+// Request
+{
+  "name": "PSG Academy Paris",
+  "country_id": 1
+}
+
+// Response (201 Created)
+{
+  "id": 1,
+  "name": "PSG Academy Paris",
+  "country_id": 1
+}
+```
+
+**GET /academies/country/{country_id}**
+```json
+// Response (200 OK)
+[
+  {
+    "id": 1,
+    "name": "PSG Academy Paris",
+    "country_id": 1
+  },
+  {
+    "id": 2,
+    "name": "PSG Academy Marseille",
+    "country_id": 1
+  }
+]
+```
+
+---
+
+#### **Teams**
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `/teams/` | Create a new team | Yes |
+| GET | `/teams/` | Get all teams | Yes |
+| GET | `/teams/academy/{academy_id}` | Get teams by academy | Yes |
+| PUT | `/teams/{team_id}` | Update a team | Yes |
+| DELETE | `/teams/{team_id}` | Delete a team | Yes |
+
+**POST /teams/**
+```json
+// Request
+{
+  "name": "U17 Team",
+  "academy_id": 1
+}
+
+// Response (201 Created)
+{
+  "id": 1,
+  "name": "U17 Team",
+  "academy_id": 1
+}
+```
+
+**GET /teams/academy/{academy_id}**
+```json
+// Response (200 OK)
+[
+  {
+    "id": 1,
+    "name": "U17 Team",
+    "academy_id": 1
+  },
+  {
+    "id": 2,
+    "name": "U19 Team",
+    "academy_id": 1
+  }
+]
+```
+
+---
+
+#### **Players**
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `/players/` | Create a new player | Yes |
+| GET | `/players/` | Get all players | Yes |
+| GET | `/players/team/{team_id}` | Get players by team | Yes |
+| PUT | `/players/{player_id}` | Update a player | Yes |
+| DELETE | `/players/{player_id}` | Delete a player | Yes |
+
+**POST /players/**
+```json
+// Request
+{
+  "name": "Jean Dupont",
+  "age": 17,
+  "team_id": 1
+}
+
+// Response (201 Created)
+{
+  "id": 1,
+  "name": "Jean Dupont",
+  "age": 17,
+  "team_id": 1
+}
+```
+
+**GET /players/team/{team_id}**
+```json
+// Response (200 OK)
+[
+  {
+    "id": 1,
+    "name": "Jean Dupont",
+    "age": 17,
+    "team_id": 1
+  },
+  {
+    "id": 2,
+    "name": "Pierre Martin",
+    "age": 16,
+    "team_id": 1
+  }
+]
+```
+
+**PUT /players/{player_id}**
+```json
+// Request
+{
+  "name": "Jean Dupont",
+  "age": 18
+}
+
+// Response (200 OK)
+{
+  "id": 1,
+  "name": "Jean Dupont",
+  "age": 18,
+  "team_id": 1
+}
+```
+
+---
+
+#### **Catapult GPS Data**
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `/catapult/upload` | Upload and process Catapult CSV file | Yes |
+| GET | `/catapult/sessions` | Get all training sessions | Yes |
+| GET | `/catapult/sessions/title/{session_title}` | Get sessions by title | Yes |
+| GET | `/catapult/sessions/player/{player_name}` | Get sessions by player name | Yes |
+| GET | `/catapult/sessions/{session_id}` | Get specific session by ID | Yes |
+| POST | `/catapult/analyze/session/{session_title}` | Analyze session with split detection | Yes |
+
+**POST /catapult/upload**
+```
+// Request (multipart/form-data)
+Content-Type: multipart/form-data
+file: [CSV file]
+
+// Response (200 OK)
+{
+  "filename": "training_session_2024.csv",
+  "records_stored": 25,
+  "players_count": 25,
+  "session_title": "Training Session - 2024-01-04",
+  "summary": {
+    "total_distance_avg": 5420.5,
+    "max_speed_avg": 28.3,
+    "sprint_count_avg": 12
+  }
+}
+```
+
+**GET /catapult/sessions**
+```json
+// Response (200 OK)
+[
+  {
+    "id": 1,
+    "session_title": "Training Session - 2024-01-04",
+    "player_name": "Jean Dupont",
+    "total_distance": 5420.5,
+    "max_speed": 28.3,
+    "sprint_count": 12,
+    "high_speed_running": 850.2
+  }
+]
+```
+
+**POST /catapult/analyze/session/{session_title}**
+```json
+// Response (200 OK)
+{
+  "session_title": "Training Session - 2024-01-04",
+  "analysis": {
+    "splits_detected": 3,
+    "split_summaries": [
+      {
+        "split_number": 1,
+        "duration": "15:00",
+        "avg_distance": 1800.5,
+        "avg_intensity": "high"
+      }
+    ],
+    "player_comparisons": [
+      {
+        "player": "Jean Dupont",
+        "performance_score": 8.5,
+        "rank": 1
+      }
+    ]
+  }
+}
+```
+
+---
+
+### API Design Principles
+
+**1. RESTful Design:**
+- Resources are nouns (countries, academies, teams, players)
+- HTTP methods match actions (GET=read, POST=create, PUT=update, DELETE=delete)
+- Consistent URL structure
+
+**2. Status Codes:**
+- `200 OK` - Successful GET, PUT, DELETE
+- `201 Created` - Successful POST
+- `400 Bad Request` - Invalid input
+- `401 Unauthorized` - Missing/invalid authentication
+- `404 Not Found` - Resource doesn't exist
+- `409 Conflict` - Duplicate resource (e.g., country name already exists)
+
+**3. Response Format:**
+- All responses are JSON
+- Consistent error format:
+```json
+{
+  "detail": "Error message description"
+}
+```
+
+**4. Authentication:**
+- Protected endpoints require JWT token in Authorization header:
+```
+Authorization: Bearer <token>
+```
+
+**5. Validation:**
+- Input validation using Pydantic models
+- Type checking enforced by FastAPI
+- Automatic OpenAPI documentation at `/docs`
+
+---
+
+### Future API Endpoints (Planned)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/auth/login` | User authentication |
+| POST | `/auth/logout` | User logout |
+| GET | `/auth/me` | Get current user info |
+| GET | `/players/{player_id}/stats/match` | Get player match statistics |
+| GET | `/players/{player_id}/stats/physical` | Get player physical statistics |
+| POST | `/players/{player_id}/stats/match` | Add match statistics |
+| POST | `/players/{player_id}/stats/physical` | Add physical test results |
+| GET | `/players/{player_id}/performance-trend` | Get performance trend over time |
+| GET | `/alerts/` | Get all alerts |
+| GET | `/alerts/unread` | Get unread alerts |
+| PATCH | `/alerts/{alert_id}/read` | Mark alert as read |
+| POST | `/reports/session` | Generate session report PDF |
+| POST | `/reports/weekly` | Generate weekly report PDF |
+| POST | `/reports/individual` | Generate individual player report PDF |
+| GET | `/calendar/sessions` | Get training calendar |
+| POST | `/calendar/sessions` | Create training session |
+| PUT | `/calendar/sessions/{session_id}` | Update training session |
+| GET | `/calendar/export/pdf` | Export calendar as PDF |
+| GET | `/calendar/export/ics` | Export calendar as ICS |
+
 
 <a name="author"></a>
 ## [Author](#table-of-contents)
