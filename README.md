@@ -1282,7 +1282,7 @@ main branch → Deploy to Production
 
 ---
 
-## [Author](#table-of-contents)
+## [Author](#-table-of-contents)
 
 | Author           | Role      | GitHub                                   | Email                        |
 |------------------|-----------|------------------------------------------|------------------------------|
