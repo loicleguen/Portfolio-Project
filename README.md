@@ -185,72 +185,145 @@ This integrated timeline provides a clear overview of all major phases and miles
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                         USER INTERFACE                          │
-│                      (Web Browser / Tablet)                     │
+│                  (Web Browser - Coach Dashboard)                │
 └───────────────────────────┬─────────────────────────────────────┘
                             │
                             │ HTTPS Requests
                             ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                         FRONT-END LAYER                         │
-│                    React.js / Next.js / Vue.js                  │
-│                   (Dashboard, Charts, Forms)                    │
+│                           NGINX                                 │
+│                   (Reverse Proxy / HTTPS)                       │
 └───────────────────────────┬─────────────────────────────────────┘
                             │
-                            │ REST API / GraphQL
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                         FRONT-END LAYER                         │
+│              React + TypeScript + Material UI/Chakra            │
+│               (Dashboard, Charts with Recharts/Chart.js)        │
+└───────────────────────────┬─────────────────────────────────────┘
+                            │
+                            │ REST API (JSON)
                             ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │                         BACK-END LAYER                          │
-│                    Node.js / Python Flask                       │
-│                   (API Endpoints, Business Logic)               │
-└───────────┬───────────────┴───────────────┬─────────────────────┘
-            │                               │
-            │                               │
-            ▼                               ▼
-┌───────────────────────┐       ┌──────────────────────────┐
-│   DATABASE LAYER      │       │   EXTERNAL SERVICES      │
-│   PostgreSQL / MySQL  │       │   (Email Notifications)  │
-│   (Player Stats,      │       │   (Cloud Storage)        │
-│    Training Data)     │       │                          │
-└───────────────────────┘       └──────────────────────────┘
+│                     Python + FastAPI                            │
+│           (API Endpoints, JWT Auth, Business Logic)             │
+│                   OAuth2 Password Flow                          │
+└──┬──────────────┬──────────────┬──────────────┬─────────────────┘
+   │              │              │              │
+   ▼              ▼              ▼              ▼
+┌────────┐  ┌──────────┐  ┌──────────┐  ┌─────────────┐
+│ Redis  │  │PostgreSQL│  │ CSV/Excel│  │PDF Generator│
+│(Cache) │  │+SQLAlchemy│ │  Import  │  │ wkhtmltopdf │
+│        │  │          │  │  pandas  │  │  WeasyPrint │
+└────────┘  └──────────┘  └──────────┘  └─────────────┘
+                 │
+                 │ (Player Stats, Matches, Sessions)
+                 ▼
+         ┌───────────────┐
+         │  PostgreSQL   │
+         │   Database    │
+         └───────────────┘
+```
+
+### Deployment Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                      DOCKER COMPOSE                             │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
+│  │   Frontend   │  │   Backend    │  │  PostgreSQL  │           │
+│  │  Container   │  │  Container   │  │  Container   │           │
+│  │  (React TS)  │  │ (FastAPI)    │  │              │           │
+│  └──────────────┘  └──────────────┘  └──────────────┘           │
+│  ┌──────────────┐  ┌──────────────┐                             │
+│  │    Nginx     │  │    Redis     │                             │
+│  │  Container   │  │  Container   │                             │
+│  └──────────────┘  └──────────────┘                             │
+└─────────────────────────────────────────────────────────────────┘
+           │
+           │ GitHub Actions (CI/CD)
+           ▼
+     [Automated Deployment]
 ```
 
 ### Components Description
 
 **Front-end:**
-- **Technology:** React.js with chart libraries (Chart.js or D3.js)
-- **Responsibilities:** User interface, data visualization, CSV file upload, dashboard display
-- **Key Features:** Interactive charts, filtering, player comparison views
+- **Technology:** React + TypeScript
+- **UI Library:** Material UI / Chakra UI / Mantine
+- **Charts:** Recharts / Chart.js
+- **Responsibilities:** Coach dashboard interface, data visualization, CSV file upload, player statistics display
+- **Key Features:** Interactive charts, filtering, player comparison, responsive design
 
 **Back-end:**
-- **Technology:** Node.js with Express.js (or Python with Flask/Django)
-- **Responsibilities:** API endpoints, data processing, business logic, authentication
-- **Key Features:** REST API for CRUD operations, CSV parsing, data validation, alert generation
+- **Technology:** Python + FastAPI
+- **ORM:** SQLAlchemy / SQLModel
+- **Authentication:** JWT (OAuth2 Password Flow)
+- **Responsibilities:** REST API endpoints, business logic, authentication, data processing
+- **Key Features:** 
+  - CRUD operations for players, matches, and sessions
+  - CSV/Excel import with pandas + openpyxl
+  - User authentication and role management (coach, admin)
+  - Performance alerts generation
 
 **Database:**
-- **Technology:** PostgreSQL or MySQL (relational database)
-- **Responsibilities:** Store player statistics, training data, match performance, user information
-- **Structure:** Relational tables for players, matches, statistics, coaches, alerts
+- **Technology:** PostgreSQL
+- **ORM:** SQLAlchemy / SQLModel
+- **Responsibilities:** Store player data, match statistics, training sessions, user accounts
+- **Structure:** Relational tables for players, matches, sessions, coaches, statistics
 
-**External Services:**
-- Email service (e.g., SendGrid) for sending performance alerts
-- Cloud storage (e.g., AWS S3) for storing CSV files and reports
-- Authentication service (optional: Auth0, Firebase Auth)
+**Cache Layer (Optional for Performance):**
+- **Technology:** Redis
+- **Responsibilities:** Cache frequently accessed data to improve performance
+- **Usage:** Store recent player statistics, dashboard data
+
+**Import/Export:**
+- **CSV/Excel Import:** pandas + openpyxl / csv module
+- **PDF Export:** HTML + CSS + wkhtmltopdf / WeasyPrint for generating player reports and schedules
+
+**Web Server:**
+- **Technology:** Nginx
+- **Responsibilities:** Reverse proxy, HTTPS, static file serving, load balancing
+- **Features:** SSL/TLS termination, request routing, security
+
+**Development & Deployment:**
+- **Containerization:** Docker + Docker Compose
+- **Version Control:** GitHub
+- **CI/CD:** GitHub Actions for automated testing and deployment
+- **Environment Consistency:** All team members work in identical Docker environments
+
+**Future Enhancement:**
+- **Mobile App:** React PWA (Progressive Web App) for players to view their own statistics
 
 ### Data Flow
 
-1. **User uploads CSV file** → Front-end sends file to back-end API
-2. **Back-end processes CSV** → Parses data, validates, and stores in database
-3. **User requests dashboard** → Front-end fetches data from back-end API
-4. **Back-end queries database** → Retrieves player statistics and sends JSON response
-5. **Front-end renders charts** → Displays interactive visualizations
-6. **Alert triggers** → Back-end detects performance drop and sends email notification
+1. **Coach uploads CSV file** → React frontend sends file to FastAPI backend
+2. **Backend processes CSV** → pandas parses and validates data → stores in PostgreSQL via SQLAlchemy
+3. **Coach requests dashboard** → React app calls FastAPI endpoints with JWT token
+4. **Backend authenticates request** → Validates JWT → queries PostgreSQL (or Redis cache)
+5. **Frontend renders charts** → Recharts/Chart.js displays player statistics
+6. **Coach exports PDF report** → Backend generates PDF with wkhtmltopdf/WeasyPrint
+7. **Performance alert** → Backend detects drop in statistics → triggers notification
 
 ### Architecture Justification
 
-- **React.js for front-end:** Popular, component-based, excellent for dynamic dashboards with real-time data updates
-- **Node.js for back-end:** JavaScript consistency across stack, efficient for I/O operations, strong ecosystem for data processing
-- **PostgreSQL for database:** Reliable for structured data, supports complex queries needed for statistics analysis
-- **RESTful API:** Simple, scalable, and widely supported for communication between front-end and back-end
+| Component | Technology | Justification |
+|-----------|-----------|---------------|
+| Backend API | Python + FastAPI | Versatile language, ideal for data manipulation; FastAPI is modern, fast, and simple to structure |
+| Database | PostgreSQL | Reliable, performant, well-suited for relationships between players, matches, sessions |
+| ORM | SQLAlchemy/SQLModel | Simplifies SQL queries, keeps code readable and maintainable |
+| Frontend | React + TypeScript | Fluid, modern, reactive interface; TypeScript makes code safer and easier to maintain in teams |
+| UI Components | Material UI/Chakra/Mantine | Ready-to-use components (tables, buttons, forms) to save development time |
+| Charts | Recharts/Chart.js | Simple tools for displaying performance graphs and player statistics |
+| Data Import | pandas + openpyxl | Easy import and transformation of stats files from external systems |
+| Authentication | JWT (OAuth2) | Modern standard for securing connections and managing users (coach, admin, etc.) |
+| PDF Export | wkhtmltopdf/WeasyPrint | Generates clean PDFs (reports, schedules) from application pages |
+| Deployment | Docker Compose | Ensures all team members work in the same environment |
+| Web Server | Nginx | Fast and secure production serving (HTTPS, redirects, etc.) |
+| CI/CD | GitHub Actions | Facilitates collaborative work, backups, and automated deployments |
+| Cache | Redis (optional) | Speeds up application by temporarily storing frequently requested data |
+| Mobile (future) | React PWA | Reuses the same React codebase to create a simple mobile version for players |
 
 <a name="author"></a>
 ## [Author](#table-of-contents)
