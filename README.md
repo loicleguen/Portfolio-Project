@@ -23,7 +23,7 @@ Part 3
 - [User Stories and Mockups](#user-stories-and-mockups)
 - [System Architecture](#system-architecture)
 - [Components, Classes, and Database Design](#components-classes-and-database-design)
-- [High-Level Sequence Diagrams](#high--level-sequence-diagrams)
+- [High-Level Sequence Diagrams](#high-level-sequence-diagrams)
 
 - [Author](#author)
 
