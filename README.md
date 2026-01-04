@@ -23,6 +23,8 @@ Part 3
 - [User Stories and Mockups](#user-stories-and-mockups)
 - [System Architecture](#system-architecture)
 - [Components, Classes, and Database Design](#components-classes-and-database-design)
+- [High-Level Sequence Diagrams](#high--level-sequence-diagrams)
+
 - [Author](#author)
 
 # Stage 1/ Team Formation, Brainstorming and MVP.
@@ -704,6 +706,191 @@ src/
 1. CSV import component → Upload player statistics
 2. Backend processes → Updates database
 3. Frontend refreshes → Displays updated data
+
+## [High-Level Sequence Diagrams](#-table-of-contents)
+
+### Use Case 1: User Authentication
+
+```mermaid
+sequenceDiagram
+    actor Coach
+    participant Frontend as React Frontend
+    participant Nginx
+    participant Backend as FastAPI Backend
+    participant DB as PostgreSQL
+    
+    Coach->>Frontend: Enter credentials (email, password)
+    Frontend->>Frontend: Validate form inputs
+    Frontend->>Nginx: POST /api/auth/login
+    Nginx->>Backend: Forward request
+    Backend->>DB: Query user by email
+    DB-->>Backend: Return user data
+    Backend->>Backend: Verify password hash
+    Backend->>Backend: Generate JWT token
+    Backend-->>Nginx: Return JWT + user info
+    Nginx-->>Frontend: 200 OK + JWT token
+    Frontend->>Frontend: Store JWT in localStorage
+    Frontend->>Frontend: Redirect to Dashboard
+    Frontend-->>Coach: Display Dashboard
+    
+    Note over Coach,DB: Subsequent requests include JWT in Authorization header
+```
+
+### Use Case 2: CSV Data Import
+
+```mermaid
+sequenceDiagram
+    actor Coach
+    participant Frontend as React Frontend
+    participant Nginx
+    participant Backend as FastAPI Backend
+    participant Pandas as pandas Library
+    participant DB as PostgreSQL
+    
+    Coach->>Frontend: Select CSV file
+    Frontend->>Frontend: Validate file format
+    Frontend->>Nginx: POST /api/import/csv (multipart/form-data)
+    Nginx->>Backend: Forward file upload
+    Backend->>Backend: Validate JWT token
+    Backend->>Pandas: Parse CSV file
+    Pandas-->>Backend: Return DataFrame
+    Backend->>Backend: Validate data structure
+    Backend->>Backend: Transform data
+    
+    loop For each player record
+        Backend->>DB: INSERT/UPDATE player stats
+        DB-->>Backend: Confirm transaction
+    end
+    
+    Backend->>DB: Create import log entry
+    DB-->>Backend: Confirm log saved
+    Backend-->>Nginx: 200 OK + import summary
+    Nginx-->>Frontend: Return result
+    Frontend->>Frontend: Display success message
+    Frontend-->>Coach: Show import summary (lines processed, errors)
+```
+
+### Use Case 3: View Player Performance Dashboard
+
+```mermaid
+sequenceDiagram
+    actor Coach
+    participant Frontend as React Frontend
+    participant Nginx
+    participant Backend as FastAPI Backend
+    participant Redis as Redis Cache
+    participant DB as PostgreSQL
+    
+    Coach->>Frontend: Click on player card
+    Frontend->>Nginx: GET /api/players/{player_id}
+    Nginx->>Backend: Forward request
+    Backend->>Backend: Validate JWT token
+    
+    Backend->>Redis: Check cache for player data
+    
+    alt Cache hit
+        Redis-->>Backend: Return cached data
+    else Cache miss
+        Backend->>DB: Query player profile
+        DB-->>Backend: Return profile data
+        Backend->>DB: Query match statistics
+        DB-->>Backend: Return match stats
+        Backend->>DB: Query physical statistics
+        DB-->>Backend: Return physical stats
+        Backend->>Backend: Aggregate data
+        Backend->>Redis: Store in cache (TTL: 5 min)
+    end
+    
+    Backend-->>Nginx: 200 OK + player data (JSON)
+    Nginx-->>Frontend: Return player data
+    Frontend->>Frontend: Render PlayerDetail component
+    Frontend->>Frontend: Generate charts (Recharts)
+    Frontend-->>Coach: Display player dashboard
+```
+
+### Use Case 4: Performance Alert Generation
+
+```mermaid
+sequenceDiagram
+    participant Scheduler as Background Task
+    participant Backend as FastAPI Backend
+    participant DB as PostgreSQL
+    participant Email as Email Service
+    participant Frontend as React Frontend
+    actor Coach
+    
+    Scheduler->>Backend: Trigger daily performance check
+    Backend->>DB: Query recent match statistics
+    DB-->>Backend: Return player stats (last 5 matches)
+    
+    loop For each player
+        Backend->>Backend: Calculate performance average
+        Backend->>Backend: Compare with previous period
+        
+        alt Performance drop detected
+            Backend->>Backend: Create alert record
+            Backend->>DB: INSERT alert
+            DB-->>Backend: Confirm alert created
+            Backend->>Email: Send notification email
+            Email-->>Backend: Email sent confirmation
+        end
+    end
+    
+    Backend-->>Scheduler: Task completed
+    
+    Note over Coach,Frontend: Meanwhile, coach logs in
+    
+    Coach->>Frontend: Open application
+    Frontend->>Backend: GET /api/alerts/unread
+    Backend->>DB: Query unread alerts
+    DB-->>Backend: Return alerts
+    Backend-->>Frontend: Return alerts list
+    Frontend->>Frontend: Display AlertBadge (notification count)
+    Frontend-->>Coach: Show alert notifications
+    
+    Coach->>Frontend: Click on alert
+    Frontend->>Backend: PATCH /api/alerts/{alert_id}/read
+    Backend->>DB: UPDATE alert (read = true)
+    DB-->>Backend: Confirm update
+    Backend-->>Frontend: 200 OK
+    Frontend-->>Coach: Display alert details
+```
+
+### Sequence Diagrams Description
+
+**1. User Authentication:**
+- Coach enters credentials
+- Frontend validates and sends to backend via Nginx
+- Backend verifies credentials against database
+- JWT token generated and returned to frontend
+- Token stored for subsequent authenticated requests
+
+**2. CSV Data Import:**
+- Coach uploads CSV file through frontend
+- Backend receives and validates file
+- pandas library parses CSV data
+- Data validated and transformed
+- Each record inserted/updated in PostgreSQL
+- Import log created for tracking
+- Summary returned to coach
+
+**3. View Player Performance Dashboard:**
+- Coach selects a player
+- Backend checks Redis cache first (performance optimization)
+- If cache miss, queries PostgreSQL for all player data
+- Data aggregated and cached for future requests
+- Frontend receives data and renders dashboard with charts
+- Coach views comprehensive player statistics
+
+**4. Performance Alert Generation:**
+- Background scheduler runs daily check
+- Backend analyzes recent performance trends
+- When performance drop detected, alert created
+- Email notification sent to relevant coaches
+- Alerts displayed in frontend with badge notification
+- Coach can view and mark alerts as read
+
+These sequence diagrams illustrate the main interactions between system components for critical MVP functionalities.
 
 <a name="author"></a>
 ## [Author](#table-of-contents)
