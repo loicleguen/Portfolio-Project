@@ -175,7 +175,7 @@ This integrated timeline provides a clear overview of all major phases and miles
 
 **Mockups:**
 
-Here is the link to the mockups.
+[Here](images/mockups) is the link to the mockups.
 
 
 <a name="author"></a>
