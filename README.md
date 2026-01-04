@@ -25,6 +25,7 @@ Part 3
 - [Components, Classes, and Database Design](#components-classes-and-database-design)
 - [High-Level Sequence Diagrams](#high-level-sequence-diagrams)
 - [External and Internal APIs](#external-and-internal-apis)
+- [SCM and QA Strategies](#scm-and-qa-strategies)
 
 - [Author](#author)
 
@@ -1191,6 +1192,87 @@ Authorization: Bearer <token>
 | GET | `/calendar/export/pdf` | Export calendar as PDF |
 | GET | `/calendar/export/ics` | Export calendar as ICS |
 
+## [SCM and QA Strategies](#-table-of-contents)
+
+### Source Control Management (SCM)
+
+**Version Control:** Git + GitHub
+
+**Branching Strategy:**
+- `main` - Production-ready code (protected)
+- `develop` - Integration branch for development
+- `feature/*` - New features (e.g., `feature/player-dashboard`)
+- `bugfix/*` - Bug fixes
+- `hotfix/*` - Critical production fixes
+
+**Workflow:**
+1. Create feature branch from `develop`
+2. Develop and commit regularly with clear messages
+3. Push and create Pull Request to `develop`
+4. Code review by at least 1 team member
+5. Merge after approval and passing tests
+
+**Commit Convention:**
+```
+feat: add new feature
+fix: bug correction
+docs: documentation update
+test: add or update tests
+```
+
+**Code Review Requirements:**
+- Minimum 1 approval
+- All tests must pass
+- No merge conflicts
+- Code follows style guidelines
+
+---
+
+### Quality Assurance (QA)
+
+**Testing Strategy:**
+
+**1. Unit Tests**
+- **Backend:** `pytest` (coverage target: 80%)
+  - Test individual functions, parsers, models
+- **Frontend:** `Jest` + `React Testing Library` (coverage target: 70%)
+  - Test components, hooks, utilities
+
+**2. Integration Tests**
+- **Backend:** `pytest` + `TestClient` for API endpoints
+- **Frontend:** `Cypress` for user flows and navigation
+
+**3. Manual Testing**
+- CSV import with various file sizes
+- PDF report generation
+- Chart visualizations
+- Cross-browser compatibility (Chrome, Firefox, Safari)
+
+**Testing Tools:**
+| Layer | Frontend | Backend |
+|-------|----------|---------|
+| Unit | Jest | pytest |
+| Integration | Cypress | pytest + TestClient |
+| Linting | ESLint | pylint / black |
+
+**CI/CD Pipeline (GitHub Actions):**
+```
+Pull Request → Automated Tests → Code Review → Merge
+     ↓
+develop branch → Deploy to Staging → Manual QA
+     ↓
+main branch → Deploy to Production
+```
+
+**Quality Metrics:**
+- Code coverage: ≥80% backend, ≥70% frontend
+- API response time: <200ms average
+- All tests pass before deployment
+
+**Environments:**
+- **Development:** Local Docker containers
+- **Staging:** Cloud deployment for testing
+- **Production:** Live environment
 
 <a name="author"></a>
 ## [Author](#table-of-contents)
