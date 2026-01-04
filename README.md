@@ -22,7 +22,7 @@ Part 2
 Part 3
 - [User Stories and Mockups](#user-stories-and-mockups)
 - [System Architecture](#system-architecture)
-- [Database Schema](#database-schema)
+- [Components, Classes, and Database Design](#components,-classes,-and-database-design)
 - [Author](#author)
 
 # Stage 1/ Team Formation, Brainstorming and MVP.
@@ -331,8 +331,9 @@ This integrated timeline provides a clear overview of all major phases and miles
 | Cache | Redis (optional) | Speeds up application by temporarily storing frequently requested data |
 | Mobile (future) | React PWA | Reuses the same React codebase to create a simple mobile version for players |
 
-## [Database Schema](#-table-of-contents)
+## [Components, Classes, and Database Design](#-table-of-contents)
 
+### Database Schema (PostgreSQL)
 ```mermaid
 erDiagram
     COUNTRY ||--o{ COUNTRY_ACADEMY : "contains"
