@@ -18,6 +18,7 @@ This portfolio project showcases my skills and achievements in software developm
 - [User Stories and Mockups](#user-stories-and-mockups)
 - [Author](#author)
 
+# Stage 1/ Team Formation, Brainstorming and MVP.
 
 ## [Team Formation and roles definition](#-table-of-contents)
 Our team began by getting to know each member’s background, strengths, and interests. We assigned initial responsibilities, including a temporary Project Manager to guide the early stages. Communication and collaboration guidelines were set up using tools like Slack or Discord. Each member took on a technical role—such as UI designer, backend developer, or frontend developer—based on their skills and preferences, ensuring balanced coverage of project needs. Stakeholders were identified and their influence on the project clarified where relevant.
@@ -124,6 +125,8 @@ This project directly addresses the needs expressed by our clients and leverages
 - **Risk:** High workload for the team.  
   **Mitigation:** Prioritize essential features and schedule regular progress reviews.
 
+# Stage 2/ Project Planning.
+
 ## [High-Level Project Plan](#-table-of-contents)
 
 ### Timeline and Phases
@@ -140,6 +143,8 @@ This project directly addresses the needs expressed by our clients and leverages
 | 8. Project Closure                 | mid-March        | Final presentation, documentation, handover             |
 
 This integrated timeline provides a clear overview of all major phases and milestones, helping the team track progress and meet key deadlines throughout the project.
+
+# Stage 3/ Technical Documentation.
 
 ## [User Stories and Mockups](#-table-of-contents)
 
