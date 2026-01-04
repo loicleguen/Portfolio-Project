@@ -16,6 +16,7 @@ This portfolio project showcases my skills and achievements in software developm
 - [Decision and Refinement](#decision-and-refinement)
 - [High-Level Project Plan](#high-level-project-plan)
 - [User Stories and Mockups](#user-stories-and-mockups)
+- [System Architecture](#system-architecture)
 - [Author](#author)
 
 # Stage 1/ Team Formation, Brainstorming and MVP.
