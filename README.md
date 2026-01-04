@@ -188,69 +188,95 @@ This integrated timeline provides a clear overview of all major phases and miles
 
 ### High-Level Architecture Diagram
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         USER INTERFACE                          │
-│                  (Web Browser - Coach Dashboard)                │
-└───────────────────────────┬─────────────────────────────────────┘
-                            │
-                            │ HTTPS Requests
-                            ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                           NGINX                                 │
-│                   (Reverse Proxy / HTTPS)                       │
-└───────────────────────────┬─────────────────────────────────────┘
-                            │
-                            ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                         FRONT-END LAYER                         │
-│              React + TypeScript + Material UI/Chakra            │
-│               (Dashboard, Charts with Recharts/Chart.js)        │
-└───────────────────────────┬─────────────────────────────────────┘
-                            │
-                            │ REST API (JSON)
-                            ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                         BACK-END LAYER                          │
-│                     Python + FastAPI                            │
-│           (API Endpoints, JWT Auth, Business Logic)             │
-│                   OAuth2 Password Flow                          │
-└──┬──────────────┬──────────────┬──────────────┬─────────────────┘
-   │              │              │              │
-   ▼              ▼              ▼              ▼
-┌────────┐  ┌──────────┐  ┌──────────┐  ┌─────────────┐
-│ Redis  │  │PostgreSQL│  │ CSV/Excel│  │PDF Generator│
-│(Cache) │  │+SQLAlchemy│ │  Import  │  │ wkhtmltopdf │
-│        │  │          │  │  pandas  │  │  WeasyPrint │
-└────────┘  └──────────┘  └──────────┘  └─────────────┘
-                 │
-                 │ (Player Stats, Matches, Sessions)
-                 ▼
-         ┌───────────────┐
-         │  PostgreSQL   │
-         │   Database    │
-         └───────────────┘
+```mermaid
+graph TB
+    subgraph "Client Layer"
+        Browser["Web Browser<br/>(Coach Dashboard)"]
+    end
+    
+    subgraph "Presentation Layer"
+        Nginx["Nginx<br/>(Reverse Proxy / HTTPS)"]
+    end
+    
+    subgraph "Frontend Layer"
+        React["React + TypeScript<br/>Material UI / Chakra<br/>Recharts / Chart.js"]
+    end
+    
+    subgraph "Backend Layer"
+        FastAPI["Python FastAPI<br/>JWT OAuth2<br/>Business Logic"]
+    end
+    
+    subgraph "Data Layer"
+        PostgreSQL["PostgreSQL<br/>SQLAlchemy/SQLModel<br/>(Players, Matches, Stats)"]
+        Redis["Redis<br/>(Cache - Optional)"]
+    end
+    
+    subgraph "Services"
+        CSV["CSV/Excel Import<br/>pandas + openpyxl"]
+        PDF["PDF Export<br/>wkhtmltopdf/WeasyPrint"]
+    end
+    
+    Browser -->|HTTPS| Nginx
+    Nginx -->|Route| React
+    React -->|REST API| FastAPI
+    FastAPI -->|Query| PostgreSQL
+    FastAPI -->|Cache| Redis
+    FastAPI -->|Process| CSV
+    FastAPI -->|Generate| PDF
+    
+    style Browser fill:#e1f5ff
+    style React fill:#61dafb
+    style FastAPI fill:#009688
+    style PostgreSQL fill:#336791
+    style Redis fill:#dc382d
 ```
 
-### Deployment Architecture
+### Deployment Architecture (Docker Compose)
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                      DOCKER COMPOSE                             │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
-│  │   Frontend   │  │   Backend    │  │  PostgreSQL  │           │
-│  │  Container   │  │  Container   │  │  Container   │           │
-│  │  (React TS)  │  │ (FastAPI)    │  │              │           │
-│  └──────────────┘  └──────────────┘  └──────────────┘           │
-│  ┌──────────────┐  ┌──────────────┐                             │
-│  │    Nginx     │  │    Redis     │                             │
-│  │  Container   │  │  Container   │                             │
-│  └──────────────┘  └──────────────┘                             │
-└─────────────────────────────────────────────────────────────────┘
-           │
-           │ GitHub Actions (CI/CD)
-           ▼
-     [Automated Deployment]
+```mermaid
+graph TB
+    subgraph Docker["Docker Compose Environment"]
+        subgraph Frontend["Frontend Container"]
+            ReactApp["React App<br/>TypeScript<br/>Port 3000"]
+        end
+        
+        subgraph Backend["Backend Container"]
+            FastAPIApp["FastAPI<br/>Python<br/>Port 8000"]
+        end
+        
+        subgraph Database["Database Container"]
+            PostgreSQLDB["PostgreSQL<br/>Port 5432"]
+        end
+        
+        subgraph Cache["Cache Container"]
+            RedisCache["Redis<br/>Port 6379"]
+        end
+        
+        subgraph WebServer["Web Server Container"]
+            NginxServer["Nginx<br/>Port 80/443"]
+        end
+    end
+    
+    subgraph CICD["CI/CD Pipeline"]
+        GitHub["GitHub Repository"]
+        Actions["GitHub Actions<br/>(Automated Testing & Deployment)"]
+    end
+    
+    NginxServer -->|Proxy| ReactApp
+    NginxServer -->|Proxy API| FastAPIApp
+    FastAPIApp -->|Connect| PostgreSQLDB
+    FastAPIApp -->|Connect| RedisCache
+    
+    GitHub -->|Trigger| Actions
+    Actions -->|Deploy| Docker
+    
+    style ReactApp fill:#61dafb
+    style FastAPIApp fill:#009688
+    style PostgreSQLDB fill:#336791
+    style RedisCache fill:#dc382d
+    style NginxServer fill:#269539
+    style GitHub fill:#181717
+    style Actions fill:#2088ff
 ```
 
 ### Components Description
