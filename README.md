@@ -152,20 +152,24 @@ This integrated timeline provides a clear overview of all major phases and miles
 4. As a data analyst, I want to filter and sort player data by various criteria (position, date, performance metrics), so that I can perform detailed analysis.
 
 **Should Have:**
+
 5. As a coach, I want to receive alerts when a player's performance drops significantly, so that I can take corrective action quickly.
 6. As a player, I want to view my own performance statistics, so that I can track my progress and set personal goals.
 7. As a coach, I want to compare multiple players side-by-side, so that I can make informed decisions about team composition.
 
 **Could Have:**
+
 8. As a coach, I want to export customized reports in PDF format, so that I can share insights with management.
 9. As a coach, I want to add notes and comments on individual player profiles, so that I can document observations and recommendations.
 
 **Won't Have (for MVP):**
+
 10. Advanced predictive analytics for future performance forecasting.
 11. Mobile application version.
 12. Integration with wearable fitness trackers.
 
 **Mockups:**
+
 [Include links or images to mockups created in Figma or other tools]
 - Dashboard homepage showing overview of team statistics
 - Individual player detail page with charts and metrics
