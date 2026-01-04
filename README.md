@@ -24,7 +24,7 @@ Part 3
 - [System Architecture](#system-architecture)
 - [Components, Classes, and Database Design](#components-classes-and-database-design)
 - [High-Level Sequence Diagrams](#high-level-sequence-diagrams)
-- [External and Internals APIs](#external-and-internals-apis)
+- [External and Internal APIs](#external-and-internal-apis)
 
 - [Author](#author)
 
