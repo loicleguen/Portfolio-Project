@@ -550,6 +550,134 @@ erDiagram
 - Indexes on frequently searched columns (match_date, test_date, player_card_id)
 - Cascade delete on certain relationships (e.g., deleting a player_card deletes their stats)
 
+### Frontend Components Architecture
+
+**Main Pages:**
+1. **HomePage** (1Home.png) - Dashboard overview with key statistics
+2. **AcademiesPage** (2Academies.png) - List of academies
+3. **TeamsPage** (3Teams.png) - List of teams
+4. **PlayersPage** (4Players.png) - List of all players
+5. **PlayerDetailPage** (5Player.png) - Individual player details
+6. **ProfilePage** (6Profil.png) - Player profile information
+7. **VEOPage** (7VEO.png) - VEO performance analysis
+8. **CatapultPage** (8Catapult.png) - Catapult physical data
+9. **SessionReportPage** (9Rapport de séance.png) - Training session report
+10. **WeeklyReportPage** (10Rapport Hebdomadaire.png) - Weekly team report
+11. **IndividualWeeklyReportPage** (11Rapport semaine individuel.png) - Individual weekly report
+
+```
+src/
+├── components/
+│   ├── layout/
+│   │   ├── Header.tsx              # Header with navigation
+│   │   ├── Sidebar.tsx             # Side navigation menu
+│   │   └── Layout.tsx              # Main wrapper component
+│   │
+│   ├── auth/
+│   │   ├── LoginForm.tsx           # Login form
+│   │   └── ProtectedRoute.tsx     # Authentication-protected route
+│   │
+│   ├── dashboard/
+│   │   ├── DashboardOverview.tsx   # Home dashboard (1Home.png)
+│   │   └── StatCard.tsx            # Individual statistic card
+│   │
+│   ├── academies/
+│   │   ├── AcademyList.tsx         # List of academies (2Academies.png)
+│   │   └── AcademyCard.tsx         # Academy card component
+│   │
+│   ├── teams/
+│   │   ├── TeamList.tsx            # List of teams (3Teams.png)
+│   │   └── TeamCard.tsx            # Team card component
+│   │
+│   ├── players/
+│   │   ├── PlayerList.tsx          # List of players (4Players.png)
+│   │   ├── PlayerCard.tsx          # Player card component
+│   │   ├── PlayerDetail.tsx        # Player detail view (5Player.png)
+│   │   ├── PlayerProfile.tsx       # Player profile (6Profil.png)
+│   │   └── PlayerFilter.tsx        # Search and filter component
+│   │
+│   ├── performance/
+│   │   ├── VEOStats.tsx            # VEO performance data (7VEO.png)
+│   │   ├── CatapultStats.tsx       # Catapult physical data (8Catapult.png)
+│   │   ├── PerformanceChart.tsx    # Charts for performance visualization
+│   │   └── ActivityZoneMap.tsx     # Activity zones display
+│   │
+│   ├── reports/
+│   │   ├── SessionReport.tsx       # Training session report (9Rapport de séance.png)
+│   │   ├── WeeklyReport.tsx        # Weekly team report (10Rapport Hebdomadaire.png)
+│   │   ├── IndividualWeeklyReport.tsx # Individual weekly report (11Rapport semaine individuel.png)
+│   │   └── ExportButtons.tsx       # PDF export buttons
+│   │
+│   ├── import-export/
+│   │   ├── CSVImport.tsx           # CSV file upload
+│   │   └── FileUploader.tsx        # Generic upload component
+│   │
+│   └── common/
+│       ├── Button.tsx              # Custom button
+│       ├── Table.tsx               # Generic table
+│       ├── Loading.tsx             # Loading indicator
+│       └── ErrorMessage.tsx        # Error message
+│
+├── pages/
+│   ├── HomePage.tsx                # Dashboard (1Home.png)
+│   ├── AcademiesPage.tsx           # Academies list (2Academies.png)
+│   ├── TeamsPage.tsx               # Teams list (3Teams.png)
+│   ├── PlayersPage.tsx             # Players list (4Players.png)
+│   ├── PlayerDetailPage.tsx        # Player detail (5Player.png)
+│   ├── ProfilePage.tsx             # Player profile (6Profil.png)
+│   ├── VEOPage.tsx                 # VEO analysis (7VEO.png)
+│   ├── CatapultPage.tsx            # Catapult data (8Catapult.png)
+│   ├── SessionReportPage.tsx       # Session report (9Rapport de séance.png)
+│   ├── WeeklyReportPage.tsx        # Weekly report (10Rapport Hebdomadaire.png)
+│   ├── IndividualWeeklyReportPage.tsx # Individual report (11Rapport semaine individuel.png)
+│   └── LoginPage.tsx               # Login page
+│
+├── hooks/
+│   ├── useAuth.ts                  # Authentication hook
+│   ├── usePlayers.ts               # Player management hook
+│   ├── useStats.ts                 # Statistics retrieval hook
+│   └── useApi.ts                   # Generic API call hook
+│
+├── services/
+│   ├── api.ts                      # API client
+│   ├── authService.ts              # Authentication service
+│   ├── playerService.ts            # Player service
+│   ├── statsService.ts             # Statistics service
+│   ├── importService.ts            # CSV import service
+│   └── exportService.ts            # PDF export service
+│
+└── types/
+    ├── player.ts                   # Player types
+    ├── stats.ts                    # Statistics types
+    └── user.ts                     # User types
+```
+
+### Main Component Interactions
+
+**Navigation Flow:**
+1. `HomePage` → Overview dashboard
+2. `AcademiesPage` → Select academy → `TeamsPage`
+3. `TeamsPage` → Select team → `PlayersPage`
+4. `PlayersPage` → Select player → `PlayerDetailPage`
+
+**Player Detail Flow:**
+1. `PlayerDetailPage` → Main player info (5Player.png)
+2. Tabs/Navigation to:
+   - `ProfilePage` → Personal info (6Profil.png)
+   - `VEOPage` → Match performance (7VEO.png)
+   - `CatapultPage` → Physical data (8Catapult.png)
+
+**Reporting Flow:**
+1. `SessionReportPage` → Training session analysis (9Rapport de séance.png)
+2. `WeeklyReportPage` → Team weekly summary (10Rapport Hebdomadaire.png)
+3. `IndividualWeeklyReportPage` → Player weekly summary (11Rapport semaine individuel.png)
+4. Export buttons → Generate PDF reports
+
+**Data Import:**
+1. CSV import component → Upload player statistics
+2. Backend processes → Updates database
+3. Frontend refreshes → Displays updated data
+
 <a name="author"></a>
 ## [Author](#table-of-contents)
 
