@@ -17,6 +17,7 @@ This portfolio project showcases my skills and achievements in software developm
 - [High-Level Project Plan](#high-level-project-plan)
 - [User Stories and Mockups](#user-stories-and-mockups)
 - [System Architecture](#system-architecture)
+- [Database Schema](#database-schema)
 - [Author](#author)
 
 # Stage 1/ Team Formation, Brainstorming and MVP.
@@ -325,7 +326,7 @@ This integrated timeline provides a clear overview of all major phases and miles
 | Cache | Redis (optional) | Speeds up application by temporarily storing frequently requested data |
 | Mobile (future) | React PWA | Reuses the same React codebase to create a simple mobile version for players |
 
-### Database Schema (PostgreSQL)
+## [Database Schema](#-table-of-contents)
 
 ```mermaid
 erDiagram
