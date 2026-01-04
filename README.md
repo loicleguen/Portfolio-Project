@@ -8,7 +8,7 @@
 ## Summary
 This portfolio project showcases my skills and achievements in software development through various projects completed during my training. It highlights my technical expertise, organizational abilities, and capacity to successfully carry out IT projects.
 
-## 📚 [Table of Contents](#-table-of-contents)
+## 📚 Table of Contents
 
 Stage 1
 - [Team Formation and roles definition](#team-Formation-and-roles-definition)
