@@ -22,7 +22,7 @@ Part 2
 Part 3
 - [User Stories and Mockups](#user-stories-and-mockups)
 - [System Architecture](#system-architecture)
-- [Components, Classes, and Database Design](#components,-classes,-and-database-design)
+- [Components, Classes, and Database Design](#components-classes-and-database-design)
 - [Author](#author)
 
 # Stage 1/ Team Formation, Brainstorming and MVP.
