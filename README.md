@@ -11,10 +11,15 @@ This portfolio project showcases my skills and achievements in software developm
 <a name="table-of-contents"></a>
 ## 📚 Table of Contents
 
+Part 1
 - [Team Formation and roles definition](#team-Formation-and-roles-definition)
 - [Brainstorming and idea evaluation](#brainstorming-and-idea-evaluation)
 - [Decision and Refinement](#decision-and-refinement)
+
+Part 2
 - [High-Level Project Plan](#high-level-project-plan)
+
+Part 3
 - [User Stories and Mockups](#user-stories-and-mockups)
 - [System Architecture](#system-architecture)
 - [Database Schema](#database-schema)
