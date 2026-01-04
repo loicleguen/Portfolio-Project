@@ -1,4 +1,4 @@
-<div align="center"><img src="dashboard_footballer.png" style="width:50%;"></div>
+<div align="center"><img src="images/dashboard_footballer.png" style="width:50%;"></div>
 
 <div align="center">
 
@@ -175,11 +175,7 @@ This integrated timeline provides a clear overview of all major phases and miles
 
 **Mockups:**
 
-[Include links or images to mockups created in Figma or other tools]
-- Dashboard homepage showing overview of team statistics
-- Individual player detail page with charts and metrics
-- Data import interface for CSV uploads
-- Filtering and comparison view
+Here is the link to the mockups.
 
 
 <a name="author"></a>
