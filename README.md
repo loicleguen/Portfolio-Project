@@ -1281,7 +1281,8 @@ main branch → Deploy to Production
 - **Staging:** Cloud deployment for testing
 - **Production:** Live environment
 
-<a name="author"></a>
+---
+
 ## [Author](#table-of-contents)
 
 | Author           | Role      | GitHub                                   | Email                        |
