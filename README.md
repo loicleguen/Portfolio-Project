@@ -139,6 +139,8 @@ This project directly addresses the needs expressed by our clients and leverages
 - **Risk:** High workload for the team.  
   **Mitigation:** Prioritize essential features and schedule regular progress reviews.
 
+---
+
 # Stage 2/ Project Planning.
 
 ## [High-Level Project Plan](#-table-of-contents)
@@ -157,6 +159,8 @@ This project directly addresses the needs expressed by our clients and leverages
 | 8. Project Closure                 | mid-March        | Final presentation, documentation, handover             |
 
 This integrated timeline provides a clear overview of all major phases and milestones, helping the team track progress and meet key deadlines throughout the project.
+
+---
 
 # Stage 3/ Technical Documentation.
 
