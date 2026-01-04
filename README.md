@@ -275,7 +275,7 @@ graph TB
     style PostgreSQLDB fill:#336791
     style RedisCache fill:#dc382d
     style NginxServer fill:#269539
-    style GitHub fill:#181717
+    style GitHub fill:#e1f5ff
     style Actions fill:#2088ff
 ```
 
