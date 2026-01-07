@@ -935,21 +935,8 @@ The project currently does not integrate external third-party APIs. All data pro
 | PUT | `/countries/{country_id}` | Update a country | Yes |
 | DELETE | `/countries/{country_id}` | Delete a country | Yes |
 
-**POST /countries/**
-```json
-// Request
-{
-  "name": "France"
-}
 
-// Response (201 Created)
-{
-  "id": 1,
-  "name": "France"
-}
-```
-
-**GET /countries/**
+**Exemple : GET /countries/**
 ```json
 // Response (200 OK)
 [
@@ -976,23 +963,8 @@ The project currently does not integrate external third-party APIs. All data pro
 | PUT | `/academies/{academy_id}` | Update an academy | Yes |
 | DELETE | `/academies/{academy_id}` | Delete an academy | Yes |
 
-**POST /academies/**
-```json
-// Request
-{
-  "name": "PSG Academy Paris",
-  "country_id": 1
-}
 
-// Response (201 Created)
-{
-  "id": 1,
-  "name": "PSG Academy Paris",
-  "country_id": 1
-}
-```
-
-**GET /academies/country/{country_id}**
+**Exemple : GET /academies/country/{country_id}**
 ```json
 // Response (200 OK)
 [
@@ -1021,23 +993,8 @@ The project currently does not integrate external third-party APIs. All data pro
 | PUT | `/teams/{team_id}` | Update a team | Yes |
 | DELETE | `/teams/{team_id}` | Delete a team | Yes |
 
-**POST /teams/**
-```json
-// Request
-{
-  "name": "U17 Team",
-  "academy_id": 1
-}
 
-// Response (201 Created)
-{
-  "id": 1,
-  "name": "U17 Team",
-  "academy_id": 1
-}
-```
-
-**GET /teams/academy/{academy_id}**
+**Exemple : GET /teams/academy/{academy_id}**
 ```json
 // Response (200 OK)
 [
@@ -1066,25 +1023,8 @@ The project currently does not integrate external third-party APIs. All data pro
 | PUT | `/players/{player_id}` | Update a player | Yes |
 | DELETE | `/players/{player_id}` | Delete a player | Yes |
 
-**POST /players/**
-```json
-// Request
-{
-  "name": "Jean Dupont",
-  "age": 17,
-  "team_id": 1
-}
 
-// Response (201 Created)
-{
-  "id": 1,
-  "name": "Jean Dupont",
-  "age": 17,
-  "team_id": 1
-}
-```
-
-**GET /players/team/{team_id}**
+**Exemple : GET /players/team/{team_id}**
 ```json
 // Response (200 OK)
 [
@@ -1103,23 +1043,6 @@ The project currently does not integrate external third-party APIs. All data pro
 ]
 ```
 
-**PUT /players/{player_id}**
-```json
-// Request
-{
-  "name": "Jean Dupont",
-  "age": 18
-}
-
-// Response (200 OK)
-{
-  "id": 1,
-  "name": "Jean Dupont",
-  "age": 18,
-  "team_id": 1
-}
-```
-
 ---
 
 #### **Catapult GPS Data**
@@ -1134,7 +1057,7 @@ The project currently does not integrate external third-party APIs. All data pro
 | POST | `/catapult/analyze/session/{session_title}` | Analyze session with split detection | Yes |
 
 **POST /catapult/upload**
-```
+```json
 // Request (multipart/form-data)
 Content-Type: multipart/form-data
 file: [CSV file]
@@ -1167,32 +1090,6 @@ file: [CSV file]
     "high_speed_running": 850.2
   }
 ]
-```
-
-**POST /catapult/analyze/session/{session_title}**
-```json
-// Response (200 OK)
-{
-  "session_title": "Training Session - 2024-01-04",
-  "analysis": {
-    "splits_detected": 3,
-    "split_summaries": [
-      {
-        "split_number": 1,
-        "duration": "15:00",
-        "avg_distance": 1800.5,
-        "avg_intensity": "high"
-      }
-    ],
-    "player_comparisons": [
-      {
-        "player": "Jean Dupont",
-        "performance_score": 8.5,
-        "rank": 1
-      }
-    ]
-  }
-}
 ```
 
 ---
@@ -1267,9 +1164,10 @@ Authorization: Bearer <token>
 **Branching Strategy:**
 - `main` - Production-ready code (protected)
 - `develop` - Integration branch for development
-- `feature/*` - New features (e.g., `feature/player-dashboard`)
-- `bugfix/*` - Bug fixes
-- `hotfix/*` - Critical production fixes
+- `Loïc` - Loïc's part
+- `Pierre-Yves` - Pierre-Yves's part
+- `Jules` - Jules's part
+- `Valentin` - Valentin's part
 
 **Workflow:**
 1. Create feature branch from `develop`
