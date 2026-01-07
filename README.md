@@ -733,13 +733,28 @@ sequenceDiagram
     Nginx->>Backend: Forward request
     Backend->>DB: Query user by email
     DB-->>Backend: Return user data
-    Backend->>Backend: Verify password hash
-    Backend->>Backend: Generate JWT token
-    Backend-->>Nginx: Return JWT + user info
-    Nginx-->>Frontend: 200 OK + JWT token
-    Frontend->>Frontend: Store JWT in localStorage
-    Frontend->>Frontend: Redirect to Dashboard
-    Frontend-->>Coach: Display Dashboard
+    
+    alt User found and password correct
+        Backend->>Backend: Verify password hash
+        Backend->>Backend: Generate JWT token
+        Backend-->>Nginx: 200 OK + JWT + user info
+        Nginx-->>Frontend: Return JWT token
+        Frontend->>Frontend: Store JWT in localStorage
+        Frontend->>Frontend: Redirect to Dashboard
+        Frontend-->>Coach: Display Dashboard
+    else User not found
+        Backend-->>Nginx: 404 Not Found
+        Nginx-->>Frontend: Error response
+        Frontend-->>Coach: Show "User not found" error
+    else Wrong password
+        Backend-->>Nginx: 401 Unauthorized
+        Nginx-->>Frontend: Error response
+        Frontend-->>Coach: Show "Invalid credentials" error
+    else Invalid input
+        Backend-->>Nginx: 400 Bad Request
+        Nginx-->>Frontend: Error response
+        Frontend-->>Coach: Show validation errors
+    end
     
     Note over Coach,DB: Subsequent requests include JWT in Authorization header
 ```
@@ -757,25 +772,44 @@ sequenceDiagram
     
     Coach->>Frontend: Select CSV file
     Frontend->>Frontend: Validate file format
-    Frontend->>Nginx: POST /api/import/csv (multipart/form-data)
-    Nginx->>Backend: Forward file upload
-    Backend->>Backend: Validate JWT token
-    Backend->>Pandas: Parse CSV file
-    Pandas-->>Backend: Return DataFrame
-    Backend->>Backend: Validate data structure
-    Backend->>Backend: Transform data
     
-    loop For each player record
-        Backend->>DB: INSERT/UPDATE player stats
-        DB-->>Backend: Confirm transaction
+    alt Valid CSV file
+        Frontend->>Nginx: POST /api/import/csv
+        Nginx->>Backend: Forward file upload
+        Backend->>Backend: Validate JWT token
+        
+        alt Valid JWT
+            Backend->>Pandas: Parse CSV file
+            Pandas-->>Backend: Return DataFrame
+            Backend->>Backend: Validate data structure
+            
+            alt Valid data structure
+                Backend->>Backend: Transform data
+                
+                loop For each player record
+                    Backend->>DB: INSERT/UPDATE player stats
+                    DB-->>Backend: Confirm transaction
+                end
+                
+                Backend->>DB: Create import log entry
+                DB-->>Backend: Confirm log saved
+                Backend-->>Nginx: 200 OK + import summary
+                Nginx-->>Frontend: Return result
+                Frontend->>Frontend: Display success message
+                Frontend-->>Coach: Show import summary
+            else Invalid data structure
+                Backend-->>Nginx: 400 Bad Request
+                Nginx-->>Frontend: Validation errors
+                Frontend-->>Coach: Show data errors
+            end
+        else Invalid/Expired JWT
+            Backend-->>Nginx: 401 Unauthorized
+            Nginx-->>Frontend: Auth error
+            Frontend-->>Coach: Redirect to login
+        end
+    else Invalid file format
+        Frontend-->>Coach: Show "Please select a CSV file" error
     end
-    
-    Backend->>DB: Create import log entry
-    DB-->>Backend: Confirm log saved
-    Backend-->>Nginx: 200 OK + import summary
-    Nginx-->>Frontend: Return result
-    Frontend->>Frontend: Display success message
-    Frontend-->>Coach: Show import summary (lines processed, errors)
 ```
 
 ### Use Case 3: View Player Performance Dashboard
@@ -794,26 +828,109 @@ sequenceDiagram
     Nginx->>Backend: Forward request
     Backend->>Backend: Validate JWT token
     
-    Backend->>Redis: Check cache for player data
+    alt Valid JWT
+        Backend->>Redis: Check cache for player data
+        
+        alt Cache hit
+            Redis-->>Backend: Return cached data
+            Backend-->>Nginx: 200 OK + player data
+        else Cache miss
+            Backend->>DB: Query player profile
+            
+            alt Player exists
+                DB-->>Backend: Return profile data
+                Backend->>DB: Query match statistics
+                DB-->>Backend: Return match stats
+                Backend->>DB: Query physical statistics
+                DB-->>Backend: Return physical stats
+                Backend->>Backend: Aggregate data
+                Backend->>Redis: Store in cache (TTL: 5 min)
+                Backend-->>Nginx: 200 OK + player data (JSON)
+            else Player not found
+                DB-->>Backend: No data
+                Backend-->>Nginx: 404 Not Found
+                Nginx-->>Frontend: Error response
+                Frontend-->>Coach: Show "Player not found"
+            end
+        end
+        
+        Nginx-->>Frontend: Return player data
+        Frontend->>Frontend: Render PlayerDetail component
+        Frontend->>Frontend: Generate charts
+        Frontend-->>Coach: Display player dashboard
+    else Invalid/Expired JWT
+        Backend-->>Nginx: 401 Unauthorized
+        Nginx-->>Frontend: Auth error
+        Frontend-->>Coach: Redirect to login
+    end
+```
+
+### Use Case 4: Performance Alert Generation
+
+```mermaid
+sequenceDiagram
+    participant Scheduler as Background Task
+    participant Backend as FastAPI Backend
+    participant DB as PostgreSQL
+    participant Email as Email Service
+    participant Frontend as React Frontend
+    actor Coach
     
-    alt Cache hit
-        Redis-->>Backend: Return cached data
-    else Cache miss
-        Backend->>DB: Query player profile
-        DB-->>Backend: Return profile data
-        Backend->>DB: Query match statistics
-        DB-->>Backend: Return match stats
-        Backend->>DB: Query physical statistics
-        DB-->>Backend: Return physical stats
-        Backend->>Backend: Aggregate data
-        Backend->>Redis: Store in cache (TTL: 5 min)
+    Scheduler->>Backend: Trigger daily performance check
+    Backend->>DB: Query recent match statistics
+    DB-->>Backend: Return player stats (last 5 matches)
+    
+    loop For each player
+        Backend->>Backend: Calculate performance average
+        Backend->>Backend: Compare with previous period
+        
+        alt Performance drop detected
+            Backend->>Backend: Create alert record
+            Backend->>DB: INSERT alert
+            DB-->>Backend: Confirm alert created
+            Backend->>Email: Send notification email
+            
+            alt Email sent successfully
+                Email-->>Backend: 200 OK
+            else Email failed
+                Email-->>Backend: 500 Error
+                Backend->>Backend: Log email error
+            end
+        end
     end
     
-    Backend-->>Nginx: 200 OK + player data (JSON)
-    Nginx-->>Frontend: Return player data
-    Frontend->>Frontend: Render PlayerDetail component
-    Frontend->>Frontend: Generate charts (Recharts)
-    Frontend-->>Coach: Display player dashboard
+    Backend-->>Scheduler: Task completed
+    
+    Note over Coach,Frontend: Meanwhile, coach logs in
+    
+    Coach->>Frontend: Open application
+    Frontend->>Backend: GET /api/alerts/unread
+    Backend->>Backend: Validate JWT
+    
+    alt Valid JWT
+        Backend->>DB: Query unread alerts
+        DB-->>Backend: Return alerts
+        Backend-->>Frontend: 200 OK + alerts list
+        Frontend->>Frontend: Display AlertBadge (count)
+        Frontend-->>Coach: Show notifications
+        
+        Coach->>Frontend: Click on alert
+        Frontend->>Backend: PATCH /api/alerts/{alert_id}/read
+        Backend->>DB: UPDATE alert (read = true)
+        
+        alt Alert exists
+            DB-->>Backend: Confirm update
+            Backend-->>Frontend: 200 OK
+            Frontend-->>Coach: Display alert details
+        else Alert not found
+            DB-->>Backend: No record
+            Backend-->>Frontend: 404 Not Found
+            Frontend-->>Coach: Show "Alert not found"
+        end
+    else Invalid JWT
+        Backend-->>Frontend: 401 Unauthorized
+        Frontend-->>Coach: Redirect to login
+    end
 ```
 
 ### Sequence Diagrams Description
