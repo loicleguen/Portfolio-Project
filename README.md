@@ -871,27 +871,38 @@ sequenceDiagram
 - Coach enters credentials
 - Frontend validates and sends to backend via Nginx
 - Backend verifies credentials against database
-- JWT token generated and returned to frontend
-- Token stored for subsequent authenticated requests
+- **Success case:** JWT token generated and returned to frontend, token stored for subsequent requests
+- **Error cases:**
+  - 404 Not Found: User doesn't exist
+  - 401 Unauthorized: Wrong password
+  - 400 Bad Request: Invalid input format
 
 **2. CSV Data Import:**
 - Coach uploads CSV file through frontend
-- Backend receives and validates file
+- Frontend validates file format
+- Backend receives and validates JWT token
 - pandas library parses CSV data
 - Data validated and transformed
 - Each record inserted/updated in PostgreSQL
 - Import log created for tracking
-- Summary returned to coach
+- **Success case:** Summary returned to coach with number of processed records
+- **Error cases:**
+  - 400 Bad Request: Invalid file format or data structure
+  - 401 Unauthorized: Invalid or expired JWT token
 
 **3. View Player Performance Dashboard:**
 - Coach selects a player
+- Backend validates JWT token
 - Backend checks Redis cache first (performance optimization)
 - If cache miss, queries PostgreSQL for all player data
 - Data aggregated and cached for future requests
 - Frontend receives data and renders dashboard with charts
-- Coach views comprehensive player statistics
+- **Success case:** Coach views comprehensive player statistics
+- **Error cases:**
+  - 404 Not Found: Player doesn't exist
+  - 401 Unauthorized: Invalid or expired JWT token
 
-These sequence diagrams illustrate the main interactions between system components for critical MVP functionalities.
+These sequence diagrams illustrate the main interactions between system components for critical MVP functionalities, including proper error handling and HTTP status codes.
 
 ## [External and Internal APIs](#-table-of-contents)
 
