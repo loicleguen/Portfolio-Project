@@ -1243,7 +1243,7 @@ main branch → Deploy to Production
 
 ## [Technical Justifications](#-table-of-contents)
 
-[Here](https://github.com/loicleguen/Portfolio-Project/blob/main/PSG%20Academy%20Technos%20Raisons.pdf) the link to document
+[Here](https://github.com/loicleguen/Portfolio-Project/blob/main/PSG-Academy-Technos.pdf) the link to document
 
 ---
 
