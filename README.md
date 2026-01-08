@@ -25,6 +25,7 @@ Stage 3
 - [High-Level Sequence Diagrams](#high-level-sequence-diagrams)
 - [External and Internal APIs](#external-and-internal-apis)
 - [SCM and QA Strategies](#scm-and-qa-strategies)
+- [Technical Justifications](#technical-justifications)
 
 About
 - [Author](#author)
@@ -1237,6 +1238,12 @@ main branch → Deploy to Production
 - **Development:** Local Docker containers
 - **Staging:** Cloud deployment for testing
 - **Production:** Live environment
+
+---
+
+## [Technical Justifications](#-table-of-contents)
+
+[Here](https://github.com/loicleguen/Portfolio-Project/blob/main/PSG%20Academy%20Technos%20Raisons.pdf) the link to document
 
 ---
 
