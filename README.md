@@ -1347,6 +1347,30 @@ For the PSG Académie web app:
 
 ## [Deliverables](#-table-of-contents)
 
+Below are the main deliverables for the PSG Académie project. Links and references are provided where applicable.
+
+- **Sprint Reviews:**  
+  [Sprint Review Notes](#) (add link or location if available)
+
+- **Retrospectives:**  
+  [Retrospective Summaries](#) (add link or location if available)
+
+- **Sprint Planning:**  
+  [Sprint Plan Table](#plan-and-define-sprints) (see above in this README)
+
+- **Source Repository:**  
+  [GitHub Repository](https://github.com/loicleguen/psg-academie/tree/develop) 
+
+- **Bug Tracking:**  
+  Managed informally via Git branches and team discussions (no dedicated tool used)
+
+- **Testing Evidence and Results:**  
+  - API endpoints tested with Swagger (see screenshots or documentation if available)
+  - Manual test results discussed during team meetings
+
+- **Production Environment:**  
+  Deployed locally using Docker Compose (see project README for setup instructions)
+
 ---
 
 ## [Author](#-table-of-contents)
