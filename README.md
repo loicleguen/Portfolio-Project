@@ -1247,8 +1247,6 @@ main branch → Deploy to Production
 - **Staging:** Cloud deployment for testing
 - **Production:** Live environment
 
----
-
 ## [Technical Justifications](#-table-of-contents)
 
 [Here](https://github.com/loicleguen/Portfolio-Project/blob/main/PSG-Academy-Technos.pdf) the link to document
@@ -1296,7 +1294,22 @@ For the creation of the Catapult API:
 
 ## [Monitor Progress and Adjust](#-table-of-contents)
 
+**Purpose:**  
+Track team progress and ensure the project advances according to plan.
+
+### Concrete practice for PSG Académie
+
+- Progress meetings were held about once a week to review completed tasks, discuss any blockers, and plan the next steps.
+- Task tracking and progress monitoring were done mainly verbally and through Git branches, without using a dedicated project management tool.
+- Sprint goals and task assignments remained stable, with no major adjustments needed.
+
+**Metrics tracked (informally):**
+- Number of features completed versus those planned.
+- Bug tracking and fixes handled as they arose during testing.
+
 ## [Conduct Sprint Reviews and Retrospectives](#-table-of-contents)
+
+
 
 ## [Final Integration and QA Testing](#-table-of-contents)
 
