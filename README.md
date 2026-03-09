@@ -1277,7 +1277,7 @@ Implement the sprint features and deliverables for the PSG Académie platform.
 
 ### Concrete process for PSG Académie
 
-- Each collaborator works on their own dedicated Git branch (e.g., `loic`, `jules`, `pierres-yves`).
+- Each collaborator works on their own dedicated Git branch (e.g., `loic`, `jules`, `pierre-yves`).
 - Features are developed and tested on these personal branches.
 - Once a feature is completed and validated, it is merged into the `develop` branch.
 - API endpoints are tested using Swagger to ensure all routes (Catapult, Veo, etc.) function correctly.
