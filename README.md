@@ -27,6 +27,14 @@ Stage 3
 - [SCM and QA Strategies](#scm-and-qa-strategies)
 - [Technical Justifications](#technical-justifications)
 
+Stage 4
+- [Plan and Define Sprints](#plan-and-define-sprints)
+- [Execute Development Tasks](#execute-development-tasks)
+- [Monitor Progress and Adjust](#monitor-progress-and-adjust)
+- [Conduct Sprint Reviews and Retrospectives](#conduct-sprint-reviews-and-retrospectives)
+- [Final Integration and QA Testing](#final-integration-and-qa-testing)
+- [Deliverables](#deliverables)
+
 About
 - [Author](#author)
 
@@ -1244,6 +1252,22 @@ main branch → Deploy to Production
 ## [Technical Justifications](#-table-of-contents)
 
 [Here](https://github.com/loicleguen/Portfolio-Project/blob/main/PSG-Academy-Technos.pdf) the link to document
+
+---
+
+# Stage 4/ MVP Development and Execution.
+
+## [Plan and Define Sprints](#-table-of-contents)
+
+## [Execute Development Tasks](#-table-of-contents)
+
+## [Monitor Progress and Adjust](#-table-of-contents)
+
+## [Conduct Sprint Reviews and Retrospectives](#-table-of-contents)
+
+## [Final Integration and QA Testing](#-table-of-contents)
+
+## [Deliverables](#-table-of-contents)
 
 ---
 
