@@ -1272,9 +1272,27 @@ To efficiently organize the development phase, we planned our first sprint by br
 | Frontend “Copier Intelligent”         | Should Have     | Pierre-Yves      | 05/03/2026    | Backend Veo Copier     |
 | Documentation (README, API docs)      | Should Have     | Loïc             | 10/03/2026    | All previous tasks     |
 
----
-
 ## [Execute Development Tasks](#-table-of-contents)
+
+**Purpose:**  
+Implement the sprint features and deliverables for the PSG Académie platform.
+
+### Concrete process for PSG Académie
+
+- Each collaborator works on their own dedicated Git branch (e.g., `loic`, `jules`, `pierres-yves`).
+- Features are developed and tested on these personal branches.
+- Once a feature is completed and validated, it is merged into the `develop` branch.
+- API endpoints are tested using Swagger to ensure all routes (Catapult, Veo, etc.) function correctly.
+- Frontend interfaces are checked in the browser to verify proper display and interactions.
+- Bugs or improvements are reported and fixed before final validation.
+
+**Concrete example:**  
+For the creation of the Catapult API:
+- Loïc develops the endpoints on his personal branch.
+- Once finished and tested with Swagger, the feature is merged into the `develop` branch.
+- Other team members can then integrate and test the feature on the common development branch.
+
+
 
 ## [Monitor Progress and Adjust](#-table-of-contents)
 
