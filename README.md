@@ -1259,6 +1259,8 @@ main branch → Deploy to Production
 
 ## [Plan and Define Sprints](#-table-of-contents)
 
+To efficiently organize the development phase, we planned our first sprint by breaking down the work into clear tasks. Each task was prioritized using the MoSCoW method and assigned to team members based on their skills and involvement in the project.
+
 | Task                                  | MoSCoW Priority | Assigned To      | Deadline      | Dependencies           |
 |-------------------------------------- |:--------------: |:---------------: |:------------: |:----------------------:|
 | Backend Catapult (API, DB, routes)    | Must Have       | Loïc             | 15/02/2026    | PostgreSQL setup       |
