@@ -1328,6 +1328,23 @@ To review progress, demo completed features, and reflect on process improvements
 
 ## [Final Integration and QA Testing](#-table-of-contents)
 
+**Purpose:**  
+Ensure that all components work together smoothly and that the project meets quality standards.
+
+### Concrete practice for PSG Académie
+
+- Integration tests were performed to verify the end-to-end functionality of the MVP, making sure the front-end communicated correctly with the back-end APIs (Catapult and Veo).
+- QA was carried out by following a final test plan, mainly through manual testing:
+  - The team checked that all user flows worked as expected (e.g., data visualization, report generation).
+  - API endpoints were tested using Swagger to ensure correct responses and proper error handling.
+  - Database operations were verified to guarantee data integrity and correct behavior in different scenarios.
+- Any critical bugs or performance issues identified at this stage were fixed before the final delivery.
+
+**Example:**  
+For the PSG Académie web app:
+- The front-end was tested to ensure proper integration with both Catapult and Veo back-end APIs.
+- Database actions (such as saving and retrieving player data) were checked for reliability and accuracy.
+
 ## [Deliverables](#-table-of-contents)
 
 ---
