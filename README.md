@@ -1347,13 +1347,13 @@ For the PSG Académie web app:
 
 ## [Deliverables](#-table-of-contents)
 
-Below are the main deliverables for the PSG Académie project. Links and references are provided where applicable.
+Below are the main deliverables for the PSG Académie project.
 
 - **Sprint Reviews:**  
-  [Sprint Review Notes](#) (add link or location if available)
+  No formal written notes; reviews were conducted verbally during team meetings.
 
 - **Retrospectives:**  
-  [Retrospective Summaries](#) (add link or location if available)
+  No written summaries; retrospectives were held verbally at the end of each sprint.
 
 - **Sprint Planning:**  
   [Sprint Plan Table](#plan-and-define-sprints) (see above in this README)
