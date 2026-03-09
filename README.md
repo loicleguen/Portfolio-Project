@@ -1267,7 +1267,7 @@ main branch → Deploy to Production
 | Frontend Veo (UI, dashboard)          | Must Have       | Jules            | 30/02/2026    | Backend Veo            |
 | Backend Veo “Copier Intelligent”      | Should Have     | Pierre-Yves      | 30/02/2026    | Backend Veo            |
 | Frontend “Copier Intelligent”         | Should Have     | Pierre-Yves      | 05/03/2026    | Backend Veo Copier     |
-| Nginx reverse proxy configuration     | Could Have      | Loïc             | 30/02/2026    | Backend, Frontend      |
+| Nginx reverse proxy configuration     | Must Have       | Loïc             | 30/02/2026    | Backend, Frontend      |
 | Documentation (README, API docs)      | Should Have     | Loïc             | 10/03/2026    | All previous tasks     |
 
 ---
