@@ -1267,9 +1267,9 @@ To efficiently organize the development phase, we planned our first sprint by br
 | Frontend Catapult (UI, dashboard)     | Must Have       | Loïc             | 30/02/2026    | Backend Catapult       |
 | Backend Veo (API, DB, routes)         | Must Have       | Jules            | 15/02/2026    | PostgreSQL setup       |
 | Frontend Veo (UI, dashboard)          | Must Have       | Jules            | 30/02/2026    | Backend Veo            |
+| Nginx reverse proxy configuration     | Must Have       | Loïc             | 30/02/2026    | Backend, Frontend      |
 | Backend Veo “Copier Intelligent”      | Should Have     | Pierre-Yves      | 30/02/2026    | Backend Veo            |
 | Frontend “Copier Intelligent”         | Should Have     | Pierre-Yves      | 05/03/2026    | Backend Veo Copier     |
-| Nginx reverse proxy configuration     | Must Have       | Loïc             | 30/02/2026    | Backend, Frontend      |
 | Documentation (README, API docs)      | Should Have     | Loïc             | 10/03/2026    | All previous tasks     |
 
 ---
