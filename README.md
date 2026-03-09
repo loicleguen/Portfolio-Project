@@ -46,17 +46,16 @@ About
 ## [Team Formation and roles definition](#-table-of-contents)
 Our team began by getting to know each member’s background, strengths, and interests. We assigned initial responsibilities, including a temporary Project Manager to guide the early stages. Communication and collaboration guidelines were set up using tools like Slack or Discord. Each member took on a technical role—such as UI designer, backend developer, or frontend developer—based on their skills and preferences, ensuring balanced coverage of project needs. Stakeholders were identified and their influence on the project clarified where relevant.
 
-The team is made up of four members:
+The team is made up of three members:
 - Pierre-Yves, who is specializing in cybersecurity.
 - Jules, who is also specializing in cybersecurity.
-- Valentin, who is in the first quarter of the fundamentals track.
 - Loïc, who is in the third quarter of the fundamentals track.
 
 At the start, we held a meeting to introduce ourselves, discuss our skills, and set expectations. We agreed to work as co-developers, without assigning a permanent Project Manager, but one member coordinates meetings and deadlines when needed.
 
 We established communication norms: regular in-person meetings at school, a Discord group for technical discussions, and WhatsApp for client communication. Decisions are made collectively, with everyone’s input considered.
 
-Technical roles were distributed based on project needs and individual strengths. The project is divided into three main parts, each managed by Pierre-Yves, Jules, or Loïc, who handle both front-end and back-end tasks. Valentin acts as the data analyst for the parts managed by Pierre-Yves and Jules, while Loïc also manages data for his section to prepare for demo day.
+Technical roles were distributed based on project needs and individual strengths. The project is divided into three main parts, each managed by Pierre-Yves, Jules, or Loïc, who handle both front-end and back-end tasks. 
 
 The direct stakeholders are obviously the co-developers, therefore Pierre-Yves, Jules, Valentin, and myself.
 The indirect stakeholders are the clients :
