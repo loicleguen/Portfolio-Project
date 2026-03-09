@@ -1176,7 +1176,6 @@ Authorization: Bearer <token>
 - `Loïc` - Loïc's part
 - `Pierre-Yves` - Pierre-Yves's part
 - `Jules` - Jules's part
-- `Valentin` - Valentin's part
 
 **Workflow:**
 1. Create feature branch from `develop`
