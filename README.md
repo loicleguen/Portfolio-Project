@@ -1,4 +1,4 @@
-<div align="center"><img src="images/dashboard_footballer.png" style="width:50%;"></div>
+<div align="center"><img src="images/dashboard_psgacademie.png" style="width:50%;"></div>
 
 <div align="center">
 
