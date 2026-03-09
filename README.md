@@ -1309,7 +1309,22 @@ Track team progress and ensure the project advances according to plan.
 
 ## [Conduct Sprint Reviews and Retrospectives](#-table-of-contents)
 
+**Purpose:**  
+To review progress, demo completed features, and reflect on process improvements.
 
+### Concrete practice for PSG Académie
+
+- At the end of each sprint (or major milestone), team members met to present and demo the completed features.
+- A retrospective was held to discuss what went well, what challenges were encountered, and how to improve for the next sprint.
+- Discussions focused on:
+  - What worked well during the sprint.
+  - The main challenges or blockers faced.
+  - Ideas for improving organization or communication in the next sprint.
+
+**Example questions for retrospectives:**
+- What worked well during this sprint?
+- What problems or obstacles did we face?
+- What can we change to improve the next sprint?
 
 ## [Final Integration and QA Testing](#-table-of-contents)
 
