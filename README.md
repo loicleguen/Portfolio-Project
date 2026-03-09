@@ -34,6 +34,7 @@ Stage 4
 - [Conduct Sprint Reviews and Retrospectives](#conduct-sprint-reviews-and-retrospectives)
 - [Final Integration and QA Testing](#final-integration-and-qa-testing)
 - [Deliverables](#deliverables)
+- [Technical Manual Review](#technical-manual-review)
 
 About
 - [Author](#author)
@@ -1370,6 +1371,28 @@ Below are the main deliverables for the PSG Académie project.
 
 - **Production Environment:**  
   Deployed locally using Docker Compose (see project README for setup instructions)
+
+## [Technical Manual Review](#-table-of-contents)
+
+This step consists of passing a technical manual review (MR) scheduled by your SWE. The MR will evaluate:
+
+- The completion of the project (a functional MVP with minor or no bugs)
+- A demonstration of the MVP
+- The quality of your code, commits, and documentation (README and code comments)
+- Your ability to explain, with technical and logical reasoning, the technical decisions you made (database design, application architecture, technology choices, diagrams, etc.)
+- Your ability to explain in detail the code and features of your portfolio
+- How your application works (frontend, backend, database, etc.)
+- How you tested your application (show/explain how tests were conducted and what was tested)
+- How you collaborated with your team members (if group project)
+- Git & GitHub best practices (branches, testing, etc.)
+- Your ability to explain technical concepts applied in your application (e.g., DB relations, frontend design, authentication, hashing, security, RBAC, etc.)
+
+**Preparation checklist:**
+- A functional application ready for demonstration
+- Application architecture diagram
+- Database diagram
+- A clean and professional README describing the project
+- A complete and well-structured GitHub repository
 
 ---
 
