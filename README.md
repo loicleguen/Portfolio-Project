@@ -35,6 +35,7 @@ Stage 4
 - [Final Integration and QA Testing](#final-integration-and-qa-testing)
 - [Deliverables](#deliverables)
 - [Technical Manual Review](#technical-manual-review)
+- [PSG-Academy link](#psg-academy)
 
 About
 - [Author](#author)
@@ -1391,6 +1392,12 @@ This step consists of passing a technical manual review (MR) scheduled by your S
 - Database diagram
 - A clean and professional README describing the project
 - A complete and well-structured GitHub repository
+
+---
+
+## [PSG-Academy link](#-table-of-contents)
+
+https://github.com/loicleguen/psg-academie/tree/loic
 
 ---
 
