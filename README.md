@@ -35,7 +35,7 @@ Stage 4
 - [Final Integration and QA Testing](#final-integration-and-qa-testing)
 - [Deliverables](#deliverables)
 - [Technical Manual Review](#technical-manual-review)
-- [PSG-Academy link](#psg-academy)
+- [PSG-Academy link](#psg-academy-link)
 
 About
 - [Author](#author)
