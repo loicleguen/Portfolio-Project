@@ -37,6 +37,11 @@ Stage 4
 - [Technical Manual Review](#technical-manual-review)
 - [PSG-Academy link](#psg-academy-link)
 
+Stage 5
+- [Document Results and Lessons Learned](#document-results-and-lessons-learned)
+- [Presentation Slide Deck](#presentation-slide-deck)
+
+
 About
 - [Author](#author)
 
@@ -1398,6 +1403,46 @@ This step consists of passing a technical manual review (MR) scheduled by your S
 ## [PSG-Academy link](#-table-of-contents)
 
 https://github.com/loicleguen/psg-academie/tree/loic
+
+---
+
+# Stage 5/ Project Closure.
+
+## [Document Results and Lessons Learned](#-table-of-contents)
+
+### Results Summary
+
+- The MVP achieved 90% of the planned features.
+- Main functionalities delivered:
+  - Real-time player performance dashboard (Catapult & Veo integration)
+  - Data visualization and report generation
+  - “Smart copy” feature for tactical analysis
+  - Personal information sheets for players
+- The application was not tested directly by clients, but features were presented during a demonstration. Clients were generally satisfied, though they suggested some improvements.
+- The project is not yet delivered, as it is still in progress.
+
+### Lessons Learned
+
+- **What went well:**
+  - Clear division of tasks by collaborator improved efficiency.
+  - Weekly progress meetings helped maintain focus and resolve blockers quickly.
+  - Using Swagger for API testing streamlined backend validation.
+- **Challenges faced:**
+  - Initial onboarding of team members took longer than expected.
+  - Some features required more time due to technical complexity (e.g., “smart copy”).
+  - I had to learn many new technologies during the project.
+  - Manual QA (testing done by hand, without automation) required extra effort.
+- **Improvements for future projects:**
+  - Allocate more time for testing and bug fixing.
+  - Consider introducing automated testing for APIs and frontend.
+  - Use a project management tool for better task tracking and visibility.
+
+## [Presentation Slide Deck](#-table-of-contents)
+
+- Includes all major stages of the project
+- MVP demonstration
+- [Link to the PowerPoint](URL)
+- [Link to the demo video](https://youtu.be/H8QW1jbAXNE)
 
 ---
 
