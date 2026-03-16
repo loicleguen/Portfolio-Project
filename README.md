@@ -1441,7 +1441,7 @@ https://github.com/loicleguen/psg-academie/tree/loic
 
 - Includes all major stages of the project
 - MVP demonstration
-- [Link to the PowerPoint](https://1drv.ms/p/c/8e156011ed185c1c/IQBL8BLc7pcASobgrNHxXFiIARNVIuOaejQt6pJM4LQa4vI?e=bn83zE)
+- [Link to the PowerPoint](https://1drv.ms/p/c/8e156011ed185c1c/IQBL8BLc7pcASobgrNHxXFiIARNVIuOaejQt6pJM4LQa4vI?e=E7wolt)
 - [Link to the demo video](https://youtu.be/H8QW1jbAXNE)
 
 ---
